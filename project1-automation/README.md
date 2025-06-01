@@ -6,6 +6,7 @@ This project automates the login functionality, Forgot password and getting a sa
 Tech Stack
 - Selenium WebDriver
 - Java
+- TESTNG 
 - Maven
 
 How to Run
@@ -16,5 +17,5 @@ How to Run
 What I Learned
 - How to set up Selenium with Java
 - Basic element locators
-- Writing and running The Script
+- Writing and running TestNG tests
 
