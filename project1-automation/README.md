@@ -12,8 +12,8 @@ Tech Stack
 How to Run
 1. Clone the repo
 2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'Learning_day1_without_TESTNG.java'
-4. Run the test file (code with TESTNG fream work implementation): 'Learning_day1_with_TESTNG.java'
+3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Login.java'
+4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Login.java'
 
 What I Learned
 - How to set up Selenium with Java
