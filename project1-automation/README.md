@@ -11,7 +11,7 @@ Tech Stack
 How to Run
 1. Clone the repo
 2. Open the project in your IDE (Eclipse)
-3. Run the test file: `LoginTest.java`
+3. Run the test file: 'Learning_day1.java'
 
 What I Learned
 - How to set up Selenium with Java
