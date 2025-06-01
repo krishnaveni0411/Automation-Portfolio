@@ -10,7 +10,6 @@ i will Push code and updates regularly what i practiced that day.
 | [Dropdowns Flow Automation] | To-Do | Automates the flow for a demo website using Selenium|
 | [Action class Flow Automation] | To-Do | Automates the flow for a demo website using Selenium|
 | [Table Flow Automation] | To-Do | Automates the flow for a demo website using Selenium|
-
 | [Login Flow Automation] | To-Do | Automates the flow for a demo website using Selenium + TestNG|
 | [Dropdowns Flow Automation] | To-Do | Automates the flow for a demo website using Selenium + TestNG|
 | [Action class Flow Automation] | To-Do | Automates the flow for a demo website using Selenium + TestNG|
