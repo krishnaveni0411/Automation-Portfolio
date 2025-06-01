@@ -10,7 +10,7 @@ i will Push code and updates regularly what i practiced that day.
 | [Dropdowns Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver with Java in Maven Project|
 | [Action class Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver with Java in Maven Project|
 | [Table Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver with Java in Maven Project|
-| [Login Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver + TestNG with Java in Maven Project|
+| [Login Flow Automation] | Completed | Automates the flow for a demo website using Selenium WebDriver + TestNG with Java in Maven Project|
 | [Dropdowns Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver + TestNG with Java in Maven Project|
 | [Action class Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver + TestNG with Java in Maven Project|
 | [Table Flow Automation] | To-Do | Automates the flow for a demo website using Selenium WebDriver + TestNG with Java in Maven Project|
