@@ -81,5 +81,4 @@ driver.findElement(By.cssSelector("button.logout-btn"));
 driver.quit();
 
 	}
-
 }
