@@ -23,8 +23,8 @@ public class Day2_StaticDropdown {
 		options.selectByIndex(2);
 		String selectedoption = options.getFirstSelectedOption().getText();
 		System.out.println(selectedoption);
-	    // options.selectByVisibleText("INR");
-		// options.selectByValue("USD");
+	    // options.selectByVisibleText("INR");  -> 2nd way to select an option from a static dropdown
+		// options.selectByValue("USD");  -> 3rd way to select an option from a static dropdown
 		driver.close();
 		
 	}
