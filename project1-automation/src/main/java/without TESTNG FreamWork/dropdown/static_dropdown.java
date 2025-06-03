@@ -17,8 +17,6 @@ public class Day2_StaticDropdown {
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		WebElement static_dropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
-		//String get_value = dropdown_option.getText();
-		//System.out.println("default selected option is : " + get_value);
 		Thread.sleep(2000);
 		static_dropdown.click();
 		Select options = new Select(static_dropdown);
