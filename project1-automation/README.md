@@ -27,9 +27,9 @@ Day 2 -
 - Now i started learing how to handel the Dropdown in this I learned **Static drop down**
 
 - Static Dropdown: 
-            - Static drop down is identifed using **Select** tag in the DOM 
-            - The values in this dropdown are fixed.
-            - The order of the value will not be changed 
+            1 Static drop down is identifed using **Select** tag in the DOM
+            2 The values in this dropdown are fixed.
+            3 The order of the value will not be changed 
 
 Day 3 - 
 
