@@ -34,6 +34,6 @@ Day 2
 
 Day 3 
 - Dynamic Dropdown phase 1 (in this the drop down is loaded only after choosing the options from one of the drop down eg: first need to choose the option in **from** dropdown and then only the **to** dropdown data/options will be loaded.
-- 
-- 
+  1. In this the dropdown value is only loaded after selecting the option in **from** dropdown.
+  2. In this i used pareent child releationship xpath and index xpath
 
