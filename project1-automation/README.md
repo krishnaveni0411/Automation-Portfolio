@@ -20,10 +20,10 @@ What I Learned
 - Basic element locators
 - Writing and running TestNG tests
 
-Day1 - 
+Day1 
 - Using Basic element locators I launched the page and try login functionalty with invalid data, then went to forgot password page and featched the password and again went to the login page and re-logined into the  account and fetched the wellcome and successfuly message.
 
-Day 2 - 
+Day 2 
 - Now i started learing how to handel the Dropdown in this I learned **Static drop down**
 
 - Static Dropdown:
@@ -32,5 +32,8 @@ Day 2 -
 2. The values in this dropdown are fixed.
 3. The order of the value will not be changed 
 
-Day 3 - 
+Day 3 
+- Dynamic Dropdown phase 1 (in this the drop down is loaded only after choosing the options from one of the drop down eg: first need to choose the option in **from** dropdown and then only the **to** dropdown data/options will be loaded.
+- 
+- 
 
