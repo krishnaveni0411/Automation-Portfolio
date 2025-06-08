@@ -18,7 +18,7 @@ How to Run
 
 **Day1** 
 - Using Basic element locators I launched the page and try login functionalty with invalid data, then went to forgot password page and featched the password and again went to the login page and re-logined into the  account and fetched the wellcome and successfuly message.
-What I Learned
+- What I Learned
 - How to set up Selenium with Java
 - Basic element locators
 - Writing and running TestNG tests
@@ -33,7 +33,7 @@ What I Learned
 - Now i started learing how to handel the Dropdown in this I learned **Static drop down**
 
 - **Static Dropdown**
-What I Learned
+- What I Learned
 1. Static drop down is identifed using **Select** tag in the DOM
 2. The values in this dropdown are fixed.
 3. The order of the value will not be changed
@@ -46,7 +46,7 @@ What I Learned
 
 **Day 3**
 - **Dynamic Dropdown** (in this the drop down is loaded only after choosing the options from one of the drop down eg: first need to choose the option in **from** dropdown and then only the **to** dropdown data/options will be loaded.
-What I Learned
+- What I Learned
   1. In this the dropdown value is only loaded after selecting the option in **from** dropdown.
   2. In this i used pareent child releationship xpath and index xpath
 
@@ -58,7 +58,7 @@ What I Learned
 
 **Day 4**
 - **Suggestive Dropdown**
-What I Learned
+- What I Learned
    1. Handling suggestive/autocomplete dropdowns where options appear dynamically as you type.
   2. Using sendKeys() to trigger suggestions.
   3. Capturing all suggestion elements using findElements().
@@ -73,6 +73,6 @@ What I Learned
 **Day 5**
 - **Custom Dropdown**
 - What I Learned
-1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
-2. Using loops (while and for) to control the number of passengers.
-3. Validating updated dropdown values using getText().
+  1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
+  2. Using loops (while and for) to control the number of passengers.
+  3. Validating updated dropdown values using getText().
