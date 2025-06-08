@@ -73,9 +73,9 @@ How to Run
 **Day 5**
 - **Custom Dropdown**
 - What I Learned
-  i. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
- ii. Using loops (while and for) to control the number of passengers.
-iii. Validating updated dropdown values using getText().
+   i. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
+  ii. Using loops (while and for) to control the number of passengers.
+ iii. Validating updated dropdown values using getText().
 
 - Key Highlights
   1. Clicked on the dropdown to open the passenger selection panel.
