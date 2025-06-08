@@ -36,7 +36,9 @@ public class Day5_Custom_Dropdown {
 		for(int j=1; j<5; j++) {
 			driver.findElement(By.id("hrefDecAdt")).click();
 		}
-		driver.findElement(By.xpath("//input[@value='Done']")).click();		
+		driver.findElement(By.xpath("//input[@value='Done']")).click();	
+		Assert.assertEquals(dropdown.getText(), "5 Adult");
+		//if you want to print the value in console then go with System.out.println();
 		System.out.println(dropdown.getText());
 		driver.close();
 	}
