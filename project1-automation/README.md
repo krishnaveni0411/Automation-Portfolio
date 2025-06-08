@@ -76,4 +76,3 @@ What I Learned
 1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
 2. Using loops (while and for) to control the number of passengers.
 3. Validating updated dropdown values using getText().
-
