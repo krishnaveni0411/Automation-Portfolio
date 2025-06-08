@@ -35,6 +35,8 @@ public class Day5_Custom_Dropdown_Testng {
 		}
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@value='Done']")).click();
+		Assert.assertEquals(dropdown.getText(), "5 Adult");
+		//if you want to print the value in console then go with System.out.println();
 		System.out.println(dropdown.getText());
 		Thread.sleep(1000);
 		// here iam again click the dropdown and decreasing the count
@@ -44,7 +46,7 @@ public class Day5_Custom_Dropdown_Testng {
 			driver.findElement(By.id("hrefDecAdt")).click();
 		}
 		driver.findElement(By.xpath("//input[@value='Done']")).click();	
-		Assert.assertEquals(dropdown.getText(), "5 Adult");
+		Assert.assertEquals(dropdown.getText(), "1 Adult");
 		//if you want to print the value in console then go with System.out.println();
 		System.out.println(dropdown.getText());
 		driver.close();
