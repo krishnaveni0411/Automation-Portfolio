@@ -54,3 +54,4 @@ Day 5
 1. Clicked on the dropdown to open the passenger selection panel.
 2. Increased the number of adult passengers using while loop.
 3. Decreased the number using a for loop.
+4. i used Assertion to check if we increnented/decrement the count to the expedted one.
