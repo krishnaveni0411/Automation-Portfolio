@@ -73,15 +73,15 @@ How to Run
 **Day 5**
 - **Custom Dropdown**
 - What I Learned
-- Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
-- Using loops (while and for) to control the number of passengers.
-- Validating updated dropdown values using getText().
+1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
+2. Using loops (while and for) to control the number of passengers.
+3. Validating updated dropdown values using getText().
 
 - Key Highlights
-- Clicked on the dropdown to open the passenger selection panel.
-- Increased the number of adult passengers using while loop.
-- Decreased the number using a for loop.
-- i used Assertion to check if we increnented/decrement the count to the expedted one.
+1. Clicked on the dropdown to open the passenger selection panel.
+2. Increased the number of adult passengers using while loop.
+3. Decreased the number using a for loop.
+4. I used Assertion to check if we increnented/decrement the count to the expedted one.
 
 - How to Run
 1. Clone the repo
