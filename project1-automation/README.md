@@ -84,10 +84,10 @@ How to Run
 - i used Assertion to check if we increnented/decrement the count to the expedted one.
 
 - How to Run
-- Clone the repo
-- Open the project in your IDE (Eclipse)
-- Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Custom_Dropdown.java'
-- Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Custom_Dropdown.java'
+1. Clone the repo
+2. Open the project in your IDE (Eclipse)
+3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Custom_Dropdown.java'
+4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Custom_Dropdown.java'
 
 **Day 6**
 - **CheckBox**
