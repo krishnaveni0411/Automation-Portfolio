@@ -1,138 +1,135 @@
-Project 1 – Automation
+# Project 1 – Automation
 
-Description
-This project automates the login functionality, Forgot password and getting a sample password, relogin and then logout form the "rahulshetty academy locators practice" website.
+## Description
+This project automates the login functionality, forgot password flow, retrieving a sample password, re-login, and logout from the **Rahul Shetty Academy Locators Practice** website.
 
-Tech Stack
-- Selenium WebDriver
-- Java
-- TESTNG 
-- Maven
+## Tech Stack
+- Selenium WebDriver  
+- Java  
+- TestNG  
+- Maven  
 
-How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/"take any file you want'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/take any file you want'
+## How to Run
+1. Clone the repo  
+2. Open the project in your IDE (e.g., Eclipse)  
+3. Run the test file (without TestNG framework):  
+   `'without TESTNG FreamWork/<filename>.java'`  
+4. Run the test file (with TestNG framework):  
+   `'With TESTNG/<filename>.java'`  
 
+---
 
-**Day1** 
-- Using Basic element locators I launched the page and try login functionalty with invalid data, then went to forgot password page and featched the password and again went to the login page and re-logined into the  account and fetched the wellcome and successfuly message.
-- What I Learned
-- How to set up Selenium with Java
-- Basic element locators
-- Writing and running TestNG tests
-  
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Login.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Login.java'
+## Day 1 – Basic Locators & Login Flow
 
-**Day 2** 
-- Now i started learing how to handel the Dropdown in this I learned **Static drop down**
+- Used basic element locators to launch the page and tested login functionality with invalid data.  
+- Then navigated to the forgot password page, fetched a temporary password, and successfully logged in.  
 
-- **Static Dropdown**
-- What I Learned
-1. Static drop down is identifed using **Select** tag in the DOM
-2. The values in this dropdown are fixed.
-3. The order of the value will not be changed
+### What I Learned
+- Setting up Selenium with Java  
+- Basic element locators  
+- Writing and running TestNG tests  
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/static_dropdown.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/static_dropdown.java'
+---
 
-**Day 3**
-- **Dynamic Dropdown** (in this the drop down is loaded only after choosing the options from one of the drop down eg: first need to choose the option in **from** dropdown and then only the **to** dropdown data/options will be loaded.
-- What I Learned
-  1. In this the dropdown value is only loaded after selecting the option in **from** dropdown.
-  2. In this i used pareent child releationship xpath and index xpath
+## Day 2 – Static Dropdown
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/dynamic_dropdown.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/dynamic_dropdown.java'
+- Learned to handle **static dropdowns** using the `Select` tag in the DOM.  
 
-**Day 4**
-- **Suggestive Dropdown**
-- What I Learned
-   1. Handling suggestive/autocomplete dropdowns where options appear dynamically as you type.
-  2. Using sendKeys() to trigger suggestions.
-  3. Capturing all suggestion elements using findElements().
-  4. Selecting the desired value using an enhanced for loop.
+### What I Learned
+1. Static dropdowns use the `<select>` tag.  
+2. Options are fixed and do not change dynamically.  
+3. Order of values remains the same.  
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/sugestive_dropdown.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/sugestive_dropdown.java'
+---
 
-**Day 5**
-- **Custom Dropdown**
-- What I Learned
-1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
-2. Using loops (while and for) to control the number of passengers.
-3. Validating updated dropdown values using getText().
+## Day 3 – Dynamic Dropdown
 
-- Key Highlights
-1. Clicked on the dropdown to open the passenger selection panel.
-2. Increased the number of adult passengers using while loop.
-3. Decreased the number using a for loop.
-4. I used Assertion to check if we increnented/decrement the count to the expedted one.
+- Dynamic dropdowns load options based on other selections (e.g., "From" and "To" cities).  
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Custom_Dropdown.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Custom_Dropdown.java'
+### What I Learned
+1. Options load **only after** selecting a value in the "From" dropdown.  
+2. Used **parent-child XPaths** and **index-based XPaths**.  
 
-**Day 6**
-- **CheckBox**
-- What I Learned
-1. How to automate checkbox interaction.
-2. How to validate checkbox selection state using isSelected().
-3. Counted the total number of checkboxes on the page.
-4. Also used a relative CSS Selector with id*='friendsandfamily' to locate the checkbox efficiently.
+---
 
-- Key Highlights
-1. Used CSS Selector with id*='friendsandfamily' to locate the checkbox.
-2. Also used a relative CSS Selector with id*='friendsandfamily' to locate the checkbox efficiently.
-3. Applied TestNG Assertions:
-    1. Assert.assertFalse() → to check if the checkbox is not selected initially.
-    2. Assert.assertTrue() → to verify it is selected after clicking.
+## Day 4 – Suggestive Dropdown
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Checkbox.java'
-4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Checkbox.java'
+- Handled **suggestive/autocomplete dropdowns** where suggestions appear as you type.
 
+### What I Learned
+1. Used `sendKeys()` to trigger suggestions.  
+2. Captured suggestion list using `findElements()`.  
+3. Selected desired value using a loop.  
 
-**Checkbox Automation Exercise – Selenium WebDriver with Java**
-- Objective:
-To practice automating checkboxes using Selenium WebDriver in Java by:
-1. Validating checkbox selection state
-2. Selecting and deselecting a checkbox
-3. Counting the number of checkboxes present on the page
+---
 
-- What This Code Does:
-1. Launches the browser.
-2. Checks the default state of the first checkbox (should be not selected).
-3. Selects the checkbox and verifies that it's selected.
-4. De-selects the checkbox and confirms it's unselected again.
-5. Prints the checkbox status at each step using System.out.println().
-6. Counts the total number of checkboxes on the page using a CSS selector.
+## Day 5 – Custom Dropdown
 
-- Key Concepts Practiced:
-1. isSelected() → To check if a checkbox is selected or not.
-2. Assert.assertTrue() / Assert.assertFalse() → Basic validation using assertions.
-3. findElements(By.cssSelector(...)).size() → To count multiple checkbox elements.
-4. DOM interaction using ID and CSS selectors.
+- Automated dropdowns that use increment/decrement controls (not `<select>` tags).
 
-- How to Run
-1. Clone the repo
-2. Open the project in your IDE (Eclipse)
-3. Run the test file: 'Exercise/checkbox.java'
+### What I Learned
+1. Used **loops (while and for)** to change the passenger count.  
+2. Validated values using `getText()`.  
+3. Applied assertions using TestNG.  
+
+### Key Highlights
+- Opened passenger selection panel  
+- Increased adults with `while` loop  
+- Decreased adults with `for` loop  
+- Used assertions to validate expected count  
+
+---
+
+## Day 6 – Checkbox
+
+### What I Learned
+1. Automated checkbox selection/deselection.  
+2. Verified selection state with `isSelected()`.  
+3. Counted total checkboxes on the page.  
+4. Used `CSS Selector` with `id*='friendsandfamily'`.
+
+### Key Highlights
+- Asserted checkbox is **not selected** initially.  
+- Selected checkbox and asserted it **is selected**.  
+- Counted all checkboxes with `findElements().size()`.  
+
+---
+
+## ✅ Checkbox Automation Exercise
+
+### Objective
+To automate and validate checkbox behavior using Selenium + Java.
+
+### Code Flow
+1. Launch browser  
+2. Validate default checkbox state  
+3. Select, validate selection  
+4. Deselect, validate again  
+5. Print checkbox state  
+6. Count total checkboxes  
+
+### Key Concepts Practiced
+- `isSelected()`  
+- `Assert.assertTrue()` / `Assert.assertFalse()`  
+- Counting with `findElements()`  
+- Using `CSS Selectors` for efficiency  
+
+---
+
+## Day 7 – Calendar & UI Element Validation
+
+This project validates calendar behavior using **Selenium WebDriver** and **TestNG**, on [SpiceJet](https://www.spicejet.com).
+
+### Features Covered
+- Launch browser & navigate to homepage  
+- Select cities using dynamic dropdowns  
+- Click calendar and validate **return date** is disabled  
+- Check **CSS style changes** in the DOM  
+- Use assertions for UI validation  
+
+---
+
+> 📂 **Project Folder Structure**  
+- `without TESTNG FreamWork/` → Test files without TestNG  
+- `With TESTNG/` → Test files with TestNG  
+- `Exercise/checkbox.java` → Additional exercises  
