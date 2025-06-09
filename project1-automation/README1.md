@@ -129,6 +129,22 @@ This project validates calendar behavior using **Selenium WebDriver** and **Test
 
 ---
 
+## Assignment 2 – UI Form Automation
+
+This project automates a user form submission on the [Rahul Shetty Academy Angular Practice Site](https://rahulshettyacademy.com/angularpractice/) using Selenium WebDriver and Java.
+
+##  Features Automated
+
+- Inputting text fields: Name, Email, Password, Date of Birth
+- Handling:
+  - Checkboxes
+  - Radio buttons
+  - Dropdown selection (Gender)
+- Capturing and printing alert confirmation message
+- Extracting and printing selected employment status label
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
