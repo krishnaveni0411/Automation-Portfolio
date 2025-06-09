@@ -72,21 +72,22 @@ How to Run
 
 **Day 5**
 - **Custom Dropdown**
-  1. Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
-  2. Using loops (while and for) to control the number of passengers.
-  3. Validating updated dropdown values using getText().
+- What I Learned
+- Automating custom dropdowns that use increment/decrement controls instead of standard <select> tags.
+- Using loops (while and for) to control the number of passengers.
+- Validating updated dropdown values using getText().
 
 - Key Highlights
-  1. Clicked on the dropdown to open the passenger selection panel.
-  2. Increased the number of adult passengers using while loop.
-  3. Decreased the number using a for loop.
-  4. i used Assertion to check if we increnented/decrement the count to the expedted one.
+- Clicked on the dropdown to open the passenger selection panel.
+- Increased the number of adult passengers using while loop.
+- Decreased the number using a for loop.
+- i used Assertion to check if we increnented/decrement the count to the expedted one.
 
 - How to Run
-  1. Clone the repo
-  2. Open the project in your IDE (Eclipse)
-  3. Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Custom_Dropdown.java'
-  4. Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Custom_Dropdown.java'
+- Clone the repo
+- Open the project in your IDE (Eclipse)
+- Run the test file (code without TESTNG fream work implementation): 'without TESTNG FreamWork/Custom_Dropdown.java'
+- Run the test file (code with TESTNG fream work implementation): 'With TESTNG/Custom_Dropdown.java'
 
 **Day 6**
 - **CheckBox**
