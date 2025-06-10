@@ -71,6 +71,11 @@ All test cases are structured in two formats:
 * Automated a calendar UI and validated disabled/enabled states.
 * **Learned:** DOM attribute checks, UI styling validation, CSS value inspection.
 
+### 🔹 Day 8 – Alert & Confirmation Popup Handling
+
+* Handled JavaScript alerts and confirmation boxes.
+* Validated alert messages and captured user input.
+
 ---
 
 ## ✅ Assignments & Mini Projects
@@ -83,21 +88,10 @@ All test cases are structured in two formats:
 
 * Input fields, gender dropdown, checkboxes, and radio buttons with validation and confirmation alert handling.
 
----
-
 ## ✈️ End-to-End Automation: SpiceJet Flight Booking
 
 * Automated a real-time scenario on the SpiceJet site:
   Selecting origin/destination, departure date, passenger count, fare category, and initiating flight search.
-
----
-
-## ⚠️ Alert & Confirmation Popup Handling
-
-* Handled JavaScript alerts and confirmation boxes.
-* Validated alert messages and captured user input.
-
----
 
 ## 🛒 Amazon Interview Challenge – Dynamic Cart Automation
 
