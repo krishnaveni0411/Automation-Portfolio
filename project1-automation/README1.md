@@ -95,7 +95,7 @@ This project automates the login functionality, forgot password flow, retrieving
 
 ---
 
-## ✅ Checkbox Automation Exercise
+## Assignment 1 - Checkbox Automation Exercise
 
 ### Objective
 To automate and validate checkbox behavior using Selenium + Java.
@@ -144,6 +144,22 @@ This project automates a user form submission on the [Rahul Shetty Academy Angul
 - Extracting and printing selected employment status label
 
 ---
+
+# Project – SpiceJet End-to-End Automation Test
+
+##  Description
+This project automates a real-time **end-to-end flight booking scenario** on the [SpiceJet website](https://www.spicejet.com/) using **Selenium WebDriver and TestNG**.
+
+It includes:
+- Selecting origin and destination
+- Choosing the current date in the departure calendar
+- Validating whether the return date calendar is enabled
+- Selecting number of adult passengers
+- Selecting a travel fare category
+- Initiating a flight search
+
+---
+
 #  Alert Handling with Selenium and TestNG
 
 This project demonstrates how to handle JavaScript alerts and confirmation popups using **Selenium WebDriver** with **TestNG** in Java.
