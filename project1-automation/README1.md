@@ -1,7 +1,12 @@
 # Project 1 – Automation
 
 ## Description
-This project automates the login functionality, forgot password flow, retrieving a sample password, re-login, and logout from the **Rahul Shetty Academy Locators Practice** website.
+his automation suite demonstrates hands-on experience with Selenium WebDriver, Java, TestNG, and Maven, focused on mastering UI automation through a series of real-world scenarios and exercises.
+The project covers end-to-end test cases including login workflows, dropdown interactions, checkbox validations, calendar handling, alert popups, and a dynamic product cart challenge modeled on real-world e-commerce behavior.
+
+All test cases are structured in two formats:
+- Without TestNG – Basic script executions.
+- With TestNG – Organized test cases with assertions and annotations for test lifecycle management.
 
 ## Tech Stack
 - Selenium WebDriver  
