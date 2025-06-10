@@ -1,7 +1,7 @@
 # Project 1 – Automation
 
 ## Description
-his automation suite demonstrates hands-on experience with Selenium WebDriver, Java, TestNG, and Maven, focused on mastering UI automation through a series of real-world scenarios and exercises.
+This automation suite demonstrates hands-on experience with Selenium WebDriver, Java, TestNG, and Maven, focused on mastering UI automation through a series of real-world scenarios and exercises.
 The project covers end-to-end test cases including login workflows, dropdown interactions, checkbox validations, calendar handling, alert popups, and a dynamic product cart challenge modeled on real-world e-commerce behavior.
 
 All test cases are structured in two formats:
