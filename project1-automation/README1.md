@@ -144,6 +144,68 @@ This project automates a user form submission on the [Rahul Shetty Academy Angul
 - Extracting and printing selected employment status label
 
 ---
+#  Alert Handling with Selenium and TestNG
+
+This project demonstrates how to handle JavaScript alerts and confirmation popups using **Selenium WebDriver** with **TestNG** in Java.
+
+##  What It Does
+
+Automates the alert box interaction on [Rahul Shetty's Practice Page](https://rahulshettyacademy.com/AutomationPractice/):
+
+- Enters a user-defined name in the input field
+- Clicks the "Alert" button and verifies that the alert message contains the entered name
+- Accepts the alert box
+- Clicks the "Confirm" button
+- Dismisses the confirmation popup
+
+---
+
+# Amazon Interview Challenge - Selenium Automation
+
+This project is a solution to a common e-commerce QA automation challenge inspired by an **Amazon interview question**. The requirement was to add selected products to the cart, even as **new products are added dynamically** to the online store.
+
+##  Problem Statement
+
+> **"New products are added daily to the Amazon marketplace. Automate the process of adding specific items to the cart regardless of how the product list changes."**
+
+## Technologies Used
+
+- **Java**
+- **Selenium WebDriver**
+- **ChromeDriver**
+
+## Solution Strategy
+
+I faced several key challenges while working on this and here’s how I tackled them:
+
+###  Problem 1: Hardcoded Product Names
+- **Issue**: Couldn’t check individual items one by one.
+- **Solution**: Created a **generic array** (`String[] itemNeeded`) and matched it dynamically.
+
+###  Problem 2: Mismatched Product Names
+- **Issue**: The UI displayed product names with additional data (e.g., "Tomato - 1 Kg").
+- **Solution**: Used `split("-")` and `trim()` to extract clean product names.
+
+###  Problem 3: Array Iteration Limitations
+- **Issue**: Arrays are less flexible for dynamic operations.
+- **Solution**: Converted the array to a **List** using `Arrays.asList()`.
+
+###  Problem 4: Button Click Failing After First Click
+- **Issue**: XPath based on static text failed as button text changed after clicking.
+- **Solution**: Switched to a **parent-child XPath strategy**:  
+  ```java
+  //div[@class='product-action']/button
+###  Problem 5: Loop Continuation After All Items Are Added
+Issue: The loop kept running even after all products were added.
+
+Solution: Used a counter j and a break once all required items were added.
+
+## Key Learnings
+- How to make automation code resilient to UI changes.
+- Improved use of XPath strategies and DOM traversal.
+- Practiced writing scalable and reusable code in real-world-like scenarios.
+---
+
 
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
