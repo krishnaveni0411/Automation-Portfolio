@@ -35,12 +35,10 @@ public class Day9_synchronization_wait_testng {
 		}
 		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
-		// here the page loads for 1 to 2 seconds by applying the implicitly wait the
-		// code is passed successful
+		// here the page loads for 1 to 2 seconds by applying the implicitly wait the code is passed successful
 		driver.findElement(By.className("promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.xpath("//button[text()='Apply']")).click();
-		// here it takes around 4 to 5 seconds so the implicitly wait fails to satisfies
-		// to i applied the explicit wait concept here.
+		// here it takes around 4 to 5 seconds so the implicitly wait fails to satisfies to i applied the explicit wait concept here.
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("promoInfo")));
 		System.out.println(driver.findElement(By.className("promoInfo")).getText());
