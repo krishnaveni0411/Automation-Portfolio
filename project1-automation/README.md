@@ -235,45 +235,49 @@ Elements don’t always load instantly — some appear in milliseconds, while ot
 
 Today, I implemented both in a real-time scenario. Here’s what I learned 👇
 
-🕓 Implicit Wait
-🔸 Applied globally across all elements.
-🔸 Tells WebDriver to wait for a certain duration when trying to find an element if it's not immediately available.
-✅ Pros:
- • Easy to implement
- • Useful for stable, consistently loading elements
- • Reduces code repetition
-✅ Cons:
- • Not ideal for elements with varying load times
- • Applies to all elements — may slow down test execution unnecessarily
- • Can’t wait for specific conditions (e.g., text change, alert present)
+ Implicit Wait
+- Applied globally across all elements.
+- Tells WebDriver to wait for a certain duration when trying to find an element if it's not immediately available.
 
-⏳ Explicit Wait
-🔸 More powerful and flexible.
-🔸 Used to wait for a specific condition or element to occur before continuing the script.
-✅ Pros:
- • Targeted & condition-based
- • Prevents flakiness in dynamic scenarios
- • Can wait for element state changes, visibility, clicks, etc.
-✅ Cons:
- • More code to write for each dynamic element
- • Misuse can lead to longer waits or timeout exceptions
- • Needs clear understanding of element behavior
+ Pros:
+ - Easy to implement
+ - Useful for stable, consistently loading elements
+ - Reduces code repetition
+ 
+ Cons:
+ - Not ideal for elements with varying load times
+ - Applies to all elements — may slow down test execution unnecessarily
+ - Can’t wait for specific conditions (e.g., text change, alert present)
 
-💡 Real Scenario I Automated:
- • Selected a list of grocery items dynamically from the UI
- • Verified cart functionality and price updates
- • Applied promo code & waited for the success message with Explicit Wait
+ Explicit Wait
+- More powerful and flexible.
+- Used to wait for a specific condition or element to occur before continuing the script.
+
+ Pros:
+ - Targeted & condition-based
+ - Prevents flakiness in dynamic scenarios
+ - Can wait for element state changes, visibility, clicks, etc.
+ 
+ Cons:
+ - More code to write for each dynamic element
+ - Misuse can lead to longer waits or timeout exceptions
+ - Needs clear understanding of element behavior
+
+ Real Scenario I Automated:
+ - Selected a list of grocery items dynamically from the UI
+ - Verified cart functionality and price updates
+ - Applied promo code & waited for the success message with Explicit Wait
 
 
-🎯 Key Takeaways
- • Use Implicit Wait as a default, but don’t rely on it for slow elements
- • Use Explicit Wait for dynamic, conditional elements (like popups, loaders, alerts)
- • Always observe app behavior and apply the right wait for optimal stability
+ Key Takeaways
+ - Use Implicit Wait as a default, but don’t rely on it for slow elements
+ - Use Explicit Wait for dynamic, conditional elements (like popups, loaders, alerts)
+ - Always observe app behavior and apply the right wait for optimal stability
 
-📌 Website Used: https://rahulshettyacademy.com/seleniumPractise/#/
+ Website Used: https://rahulshettyacademy.com/seleniumPractise/#/
 
  ## Test Case Overview
-✅ Steps Covered
+ Steps Covered
 - Open browser and navigate to the site
 - Select items: Brocolli, Tomato, Pumpkin, Mango, Pomegranate, Almonds, Cashews
 - Click Cart and Proceed to Checkout
@@ -282,6 +286,32 @@ Today, I implemented both in a real-time scenario. Here’s what I learned 👇
 - Print the promo confirmation message
 - Close the browser
 
+---
+
+# Day 10 – Fluent Wait in Selenium with TestNG
+
+This project demonstrates the use of **Fluent Wait** in Selenium WebDriver using Java and TestNG. It handles a real-time scenario where elements take time to become visible on a dynamically loaded page.
+
+##  Scenario
+
+Website Tested: [Dynamic Loading Page](https://the-internet.herokuapp.com/dynamic_loading/1)
+
+- After clicking the **Start** button, the content takes a few seconds to appear.
+- The element is already in the DOM but not immediately visible.
+- We use Fluent Wait to wait until the element becomes **visible** before proceeding.
+
+##  Code Highlights
+
+- `FluentWait` is configured to:
+  - Wait up to 30 seconds
+  - Poll every 3 seconds
+  - Ignore `NoSuchElementException`
+- Conditional logic inside the `apply()` method waits until the element becomes visible.
+
+What I Learned
+- Fluent Wait allows more flexibility for handling dynamic elements.
+- Polling helps reduce test flakiness.
+- You can apply conditional logic inside until() to wait until an element meets a specific condition.
 ---
 
 > 📂 **Project Folder Structure**  
