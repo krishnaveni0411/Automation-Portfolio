@@ -106,12 +106,12 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 ---
 
 ## 📁 Folder Structure
-
+```
 ├── without TESTNG FreamWork/
-│ └── Basic Java-based Selenium scripts
+│   └── Basic Java-based Selenium scripts
 ├── With TESTNG/
-│ └── TestNG-based organized test cases
+│   └── TestNG-based organized test cases
 ├── Exercise/
-│ └── checkbox.java
-
+│   └── checkbox.java
+```
 ---
