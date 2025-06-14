@@ -314,6 +314,34 @@ What I Learned
 - You can apply conditional logic inside until() to wait until an element meets a specific condition.
 ---
 
+## Selenium Automation Assignment – Handling Synchronization with Waits
+
+This project demonstrates how to handle **dynamic web elements** using **Implicit Wait** and **Explicit Wait** in Selenium WebDriver with Java. The script automates a complete login-to-cart user flow on the practice site provided by Rahul Shetty Academy.
+
+## Project Overview
+
+The script covers:
+
+- Extracting login credentials from UI text
+- Performing login using dynamic values
+- Selecting a role from a dropdown
+- Handling alerts and pop-ups
+- Adding multiple products to cart
+- Navigating from login ➡️ product listing ➡️ cart
+
+## Key Concepts Practiced
+
+- Synchronization using waits
+- Dynamic element handling
+- XPath and CSS selector usage
+- Form handling
+- List of web elements and loop-based actions
+
+Website Tested: https://rahulshettyacademy.com/loginpagePractise/
+
+---
+
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
