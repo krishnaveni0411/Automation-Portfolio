@@ -1,127 +1,148 @@
-## 📌 Project Overview – Selenium Test Automation Suite
+## 🧪 Selenium Automation Project Suite
 
-This automation suite demonstrates hands-on experience with **Selenium WebDriver**, **Java**, **TestNG**, and **Maven**, focused on mastering UI automation through a series of real-world scenarios and exercises.
-
-The project covers end-to-end test cases including login workflows, dropdown interactions, checkbox validations, calendar handling, alert popups, and a dynamic product cart challenge modeled on real-world e-commerce behavior.
-
-All test cases are structured in two formats:
-
-* **Without TestNG** – Basic script executions.
-* **With TestNG** – Organized test cases with assertions and annotations for test lifecycle management.
+A comprehensive automation suite built using Selenium WebDriver, Java, TestNG, and Maven, demonstrating real-world automation challenges and best practices. This project captures day-by-day progress through assignments, covering foundational concepts to advanced user interaction and dynamic synchronization techniques.
 
 ---
 
-## 🔧 Tech Stack
+## 📌 Project Highlights
 
-* **Language:** Java
-* **Automation Tool:** Selenium WebDriver
-* **Testing Framework:** TestNG
-* **Build Tool:** Maven
-* **IDE:** Eclipse / IntelliJ IDEA
+✅ End-to-End Automation: Login flows, dropdowns, calendar handling, alert popups
 
----
+✅ Real-Time Scenarios: E-commerce cart handling, product validation
 
-## 🚀 How to Run the Tests
+✅ Wait Strategies: Implicit, Explicit, and Fluent Waits
 
-1. **Clone this repository**
-2. **Open the project in your IDE**
-3. **Run tests using either approach:**
-
-   * **Without TestNG**
-     Navigate to `without TESTNG FreamWork/<filename>.java` and run the file directly.
-   * **With TestNG**
-     Navigate to `With TESTNG/<filename>.java` and run using the TestNG suite or annotations.
+✅ UI Element Interactions: Mouse hover, keyboard control, context click
 
 ---
 
-## 📅 Project Timeline and Learning Highlights
+## 🛠️ Tech Stack
 
-### 🔹 Day 1 – Login Automation & Basic Locators
-
-* Performed login with invalid data, retrieved temporary password, re-logged in.
-* **Learned:** Basic locators, navigation flows, TestNG setup.
-
-### 🔹 Day 2 – Static Dropdown
-
-* Handled `<select>` tag elements using `Select` class.
-* **Learned:** Fixed options, value selection.
-
-### 🔹 Day 3 – Dynamic Dropdown
-
-* Handled dependent dropdowns (e.g., city selection).
-* **Learned:** XPath strategies, synchronization.
-
-### 🔹 Day 4 – Suggestive Dropdown
-
-* Automated autocomplete suggestions.
-* **Learned:** `sendKeys()`, `findElements()`, dynamic list selection.
-
-### 🔹 Day 5 – Custom Dropdown
-
-* Handled dropdowns using increment/decrement buttons.
-* **Learned:** Loops, assertions, UI state validation.
-
-### 🔹 Day 6 – Checkbox Validation
-
-* Validated checkbox behavior with `isSelected()` and assertions.
-* **Learned:** CSS selectors, multiple checkbox handling.
-
-### 🔹 Day 7 – Calendar UI & Element Validation
-
-* Automated a calendar UI and validated disabled/enabled states.
-* **Learned:** DOM attribute checks, UI styling validation, CSS value inspection.
-
-### 🔹 Day 8 – Alert & Confirmation Popup Handling
-
-* Handled JavaScript alerts and confirmation boxes.
-* Validated alert messages and captured user input.
+- Selenium WebDriver
+- Java
+- TestNG
+- Maven
 
 ---
 
-## ✅ Assignments & Mini Projects
+## 🧭 How to Run
 
-### 🧪 Checkbox Automation (Assignment 1)
-
-* Validated selection states, counted all checkboxes, and verified state transitions.
-
-### 🧾 UI Form Automation (Assignment 2)
-
-* Input fields, gender dropdown, checkboxes, and radio buttons with validation and confirmation alert handling.
-
-## ✈️ End-to-End Automation: SpiceJet Flight Booking
-
-* Automated a real-time scenario on the SpiceJet site:
-  Selecting origin/destination, departure date, passenger count, fare category, and initiating flight search.
-
-## 🛒 Amazon Interview Challenge – Dynamic Cart Automation
-
-* Automated adding specific products to the cart despite dynamic UI changes.
-* **Key Strategies:**
-
-  * Used `String[]` for item names
-  * Handled extra label text using `split()` and `trim()`
-  * Converted arrays to `List`
-  * Handled dynamic buttons with parent-child XPath
-  * Controlled loop with counter and early exit
+- Clone the repository
+- Import into your Java IDE (Eclipse/IntelliJ)
+- Use TestNG to run test suites in With TESTNG/
+- Directly run .java files in without TESTNG FreamWork/ for basic execution
 
 ---
 
-## 📂 Folder Structure
+## 📚 Learning Journey & Assignments
 
-```
-├── without TESTNG FreamWork/       → Basic Java test files
-├── With TESTNG/                    → TestNG-based test classes
-├── Exercise/checkbox.java          → Assignment exercises
-```
+Day 1: Basic Locators & Login Flow
+
+Practiced element locators and page navigation
+
+Logged in using credentials extracted from UI text
+
+Day 2: Static Dropdown
+
+Automated dropdown with <select> tag using the Select class
+
+Day 3: Dynamic Dropdown
+
+Handled dependent dropdowns with dynamic options using XPath
+
+Day 4: Suggestive Dropdown
+
+Captured autocomplete suggestions using findElements() and loops
+
+Day 5: Custom Dropdown
+
+Handled passenger count updates using loops and assertions
+
+Day 6: Checkbox Testing
+
+Verified selection state and counted total checkboxes
+
+Assignment 1: Checkbox Exercise
+
+Validated default state, toggled selection, and printed checkbox states
+
+Day 7: Calendar & UI Element Validation
+
+Automated SpiceJet calendar and validated disabled state with CSS properties
+
+Assignment 2: UI Form Automation
+
+Automated input fields, checkboxes, radio buttons, and dropdowns
+
+Captured alert and radio label confirmation
+
+🔁 SpiceJet End-to-End Automation
+
+Full scenario covering flight booking logic, including dynamic validations
+
+⚠️ Alert Handling
+
+Handled JavaScript alerts and confirmation popups
+
+📦 Amazon Cart Challenge
+
+Selected multiple items from dynamic product list using smart loops and XPath
+
+Day 9: Implicit & Explicit Waits
+
+Applied global and conditional waits for dynamic loading and alerts
+
+Day 10: Fluent Wait
+
+Practiced FluentWait on delayed loading content using polling strategy
+
+Assignment: Synchronization Strategy
+
+Combined implicit and explicit waits for login and cart functionality
+
+Day 11: Selenium Actions Class
+
+Used Actions class for:
+
+- Uppercase input
+- Double click
+- Mouse hover
+- Right-click
 
 ---
 
-## 🎯 Key Takeaways
+## 📁 Folder Structure
 
-* Built a strong foundation in Selenium automation.
-* Learned robust XPath techniques and UI element handling.
-* Practiced scalable test automation design.
-* Improved debugging, validation, and assertion logic.
+├── without TESTNG FreamWork/
+│   └── Basic Java-based Selenium scripts
+├── With TESTNG/
+│   └── TestNG-based organized test cases
+├── Exercise/
+│   └── checkbox.java
 
 ---
 
+## 💡 Key Learnings
+
+- Mastery of Selenium locators and element interactions
+- Building resilient automation scripts
+- Understanding the nuances of different wait mechanisms
+- Organizing tests using TestNG and Maven
+
+---
+
+## 📎 Useful Practice Websites
+
+https://rahulshettyacademy.com/loginpagePractise/
+
+https://rahulshettyacademy.com/angularpractice/
+
+https://rahulshettyacademy.com/seleniumPractise/#/
+
+https://www.spicejet.com
+
+https://www.nykaa.com
+
+https://the-internet.herokuapp.com/dynamic_loading/1
+
+---
