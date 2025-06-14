@@ -341,7 +341,7 @@ Website Tested: https://rahulshettyacademy.com/loginpagePractise/
 
 ---
 
-## Selenium Automation – Exploring Actions Class with TestNG
+## Day 11 – Selenium Automation – Exploring Actions Class with TestNG
 
 This project demonstrates how to use the **Selenium Actions Class** to perform advanced user interactions like mouse hover, right-click, and typing uppercase input using keyboard control. The automation is performed on the **Nykaa** e-commerce website.
 
