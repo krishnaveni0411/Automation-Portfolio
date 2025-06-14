@@ -43,31 +43,31 @@ A comprehensive automation suite built using Selenium WebDriver, Java, TestNG, a
 
 ## Day 2: Static Dropdown
 
-Automated dropdown with <select> tag using the Select class
+- Automated dropdown with <select> tag using the Select class
 
 ## Day 3: Dynamic Dropdown
 
-Handled dependent dropdowns with dynamic options using XPath
+- Handled dependent dropdowns with dynamic options using XPath
 
 ## Day 4: Suggestive Dropdown
 
-Captured autocomplete suggestions using findElements() and loops
+- Captured autocomplete suggestions using findElements() and loops
 
 ## Day 5: Custom Dropdown
 
-Handled passenger count updates using loops and assertions
+- Handled passenger count updates using loops and assertions
 
 ## Day 6: Checkbox Testing
 
-Verified selection state and counted total checkboxes
+- Verified selection state and counted total checkboxes
 
 ## Assignment 1: Checkbox Exercise
 
-Validated default state, toggled selection, and printed checkbox states
+- Validated default state, toggled selection, and printed checkbox states
 
 ## Day 7: Calendar & UI Element Validation
 
-Automated SpiceJet calendar and validated disabled state with CSS properties
+- Automated SpiceJet calendar and validated disabled state with CSS properties
 
 ## Assignment 2: UI Form Automation
 
@@ -76,27 +76,27 @@ Automated SpiceJet calendar and validated disabled state with CSS properties
 
 ## 🔁 SpiceJet End-to-End Automation
 
-Full scenario covering flight booking logic, including dynamic validations
+- Full scenario covering flight booking logic, including dynamic validations
 
 ## ⚠️ Alert Handling
 
-Handled JavaScript alerts and confirmation popups
+- Handled JavaScript alerts and confirmation popups
 
 ## 📦 Amazon Cart Challenge
 
-Selected multiple items from dynamic product list using smart loops and XPath
+- Selected multiple items from dynamic product list using smart loops and XPath
 
 ## Day 9: Implicit & Explicit Waits
 
-Applied global and conditional waits for dynamic loading and alerts
+- Applied global and conditional waits for dynamic loading and alerts
 
 ## Day 10: Fluent Wait
 
-Practiced FluentWait on delayed loading content using polling strategy
+- Practiced FluentWait on delayed loading content using polling strategy
 
 ## Assignment 3: Synchronization Strategy
 
-Combined implicit and explicit waits for login and cart functionality
+- Combined implicit and explicit waits for login and cart functionality
 
 ## Day 11: Selenium Actions Class
 
