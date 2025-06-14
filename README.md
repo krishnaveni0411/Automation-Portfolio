@@ -112,6 +112,6 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 ├── With TESTNG/
 │   └── TestNG-based organized test cases
 ├── Exercise/
-│   └── checkbox.java
+│   └── Ecercise Selenium scripts
 ```
 ---
