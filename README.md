@@ -113,5 +113,7 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 │   └── TestNG-based organized test cases
 ├── Exercise/
 │   └── Ecercise Selenium scripts
+├── Real World Practice Project
+│   └── Real World Project Selenium scripts
 ```
 ---
