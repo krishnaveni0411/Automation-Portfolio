@@ -103,6 +103,10 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
   * Mouse hover  
   * Right-click
 
+### Day 12: Window Handling  
+* Switched to a child window to extract an email ID  
+* Switched back to parent window and entered it into the username field using TestNG lifecycle methods
+
 ---
 
 ## 📁 Folder Structure
