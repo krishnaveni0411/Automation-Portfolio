@@ -419,7 +419,7 @@ This automation script performs the following:
 - Returns to the main page context and closes the browser
 
 Why it Matters
-Many real-world applications use iframes and dynamic content. Mastering frame handling is crucial for automating modern UIs. This skill ensures your test scripts can:
+ Many real-world applications use iframes and dynamic content. Mastering frame handling is crucial for automating modern UIs. This skill ensures your test scripts can:
   1. Confidently interact with nested elements
   2. Simulate real-user behavior accurately
   3. Avoid stale element and visibility issues common in frame-based UIs
