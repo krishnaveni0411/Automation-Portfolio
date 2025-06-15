@@ -420,9 +420,9 @@ This automation script performs the following:
 
 Why it Matters
 - Many real-world applications use iframes and dynamic content. Mastering frame handling is crucial for automating modern UIs. This skill ensures your test scripts can:
-- Confidently interact with nested elements
-- Simulate real-user behavior accurately
-- Avoid stale element and visibility issues common in frame-based UIs
+  1. Confidently interact with nested elements
+  2. Simulate real-user behavior accurately
+  3. Avoid stale element and visibility issues common in frame-based UIs
 
 ---
 
