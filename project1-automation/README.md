@@ -404,7 +404,27 @@ It ensures your automation scripts **mimic real-user behavior accurately** and h
 
 ---
 
+## Assignment 5: Handling Nested Frames
 
+This project demonstrates the handling of **nested frames** using Selenium WebDriver with Java. It focuses on navigating through multiple frame levels and retrieving data from a deeply nested frame.
+
+##  Overview
+
+This automation script performs the following:
+
+- Launches a web browser using Selenium WebDriver
+- Opens the test site: [The Internet - Nested Frames](https://the-internet.herokuapp.com/nested_frames)
+- Navigates through nested frames (`frame-top` → `frame-middle`)
+- Extracts and prints the text from the middle frame
+- Returns to the main page context and closes the browser
+
+Why it Matters
+Many real-world applications use iframes and dynamic content. Mastering frame handling is crucial for automating modern UIs. This skill ensures your test scripts can:
+- Confidently interact with nested elements
+- Simulate real-user behavior accurately
+- Avoid stale element and visibility issues common in frame-based UIs
+
+---
 
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
