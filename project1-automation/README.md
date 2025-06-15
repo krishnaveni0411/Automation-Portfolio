@@ -368,6 +368,44 @@ This project demonstrates how to handle multiple browser windows using **Seleniu
 
 ---
 
+#  Selenium Assignment 4 – Window Handling with WebDriver
+
+This assignment demonstrates how to **handle multiple browser windows** (parent and child) using **Selenium WebDriver**. It uses Java and ChromeDriver to automate opening a new window, switching between them, and retrieving text from each.
+
+##  Why it matters:
+In real-world web applications, actions like clicking a link or a button often open **new browser tabs or windows**.  
+Handling these **window switches** is essential to verify data across different contexts of the application and ensure your test scripts don’t break during multi-window workflows.
+
+
+##  What this script covers:
+- Launching a browser and navigating to a test URL
+- Opening a new browser window via user interaction
+- Capturing all window handles using `getWindowHandles()`
+- Switching between parent and child windows
+- Extracting and printing text from both windows
+- Managing browser focus with `switchTo().window()`
+
+---
+
+#  Day 13 – Selenium Learning: Mastering Frames and Drag & Drop with Actions Class
+
+This test script demonstrates the use of **Selenium WebDriver** with **TestNG** to handle iframes and simulate user interactions like drag-and-drop using the **Actions** class.
+
+##  Why it matters:
+Many real-world applications use **iframes** and **dynamic content**.  
+Mastering **frame handling** and gesture simulation like **drag-and-drop** is crucial for automating modern UIs.  
+It ensures your automation scripts **mimic real-user behavior accurately** and handle **nested elements confidently**.
+
+##  What this script covers:
+- Switching to an iframe using `driver.switchTo().frame()`
+- Locating draggable and droppable elements
+- Performing drag-and-drop actions using the `Actions` class
+- Switching back to the main page with `driver.switchTo().defaultContent()`
+
+---
+
+
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
