@@ -165,7 +165,7 @@ It includes:
 
 ---
 
-## Day 9 – Alert Handling with Selenium and TestNG
+## Day 8 – Alert Handling with Selenium and TestNG
 
 This project demonstrates how to handle JavaScript alerts and confirmation popups using **Selenium WebDriver** with **TestNG** in Java.
 
@@ -354,11 +354,11 @@ Website Tested: https://www.nykaa.com/
 
 ---
 
-# 🚀 Day 12 – Selenium TestNG Window Handling
+##  Day 12 – Selenium TestNG Window Handling
 
 This project demonstrates how to handle multiple browser windows using **Selenium WebDriver** and **TestNG**. The script automates a login workflow where an email ID is extracted from a child window and used in the parent window.
 
-## 📌 Scenario
+## Scenario
 
 - Navigate to [Rahul Shetty Academy Login Page](https://rahulshettyacademy.com/loginpagePractise/)
 - Click on a link that opens a new browser window
