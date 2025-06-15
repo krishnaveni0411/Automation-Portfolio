@@ -150,7 +150,7 @@ This project automates a user form submission on the [Rahul Shetty Academy Angul
 
 ---
 
-# Project – SpiceJet End-to-End Automation Test
+## Project – SpiceJet End-to-End Automation Test
 
 ##  Description
 This project automates a real-time **end-to-end flight booking scenario** on the [SpiceJet website](https://www.spicejet.com/) using **Selenium WebDriver and TestNG**.
@@ -165,7 +165,7 @@ It includes:
 
 ---
 
-#  Alert Handling with Selenium and TestNG
+## Day 9 – Alert Handling with Selenium and TestNG
 
 This project demonstrates how to handle JavaScript alerts and confirmation popups using **Selenium WebDriver** with **TestNG** in Java.
 
@@ -181,19 +181,13 @@ Automates the alert box interaction on [Rahul Shetty's Practice Page](https://ra
 
 ---
 
-# Amazon Interview Challenge - Selenium Automation
+## Amazon Interview Challenge - Selenium Automation
 
 This project is a solution to a common e-commerce QA automation challenge inspired by an **Amazon interview question**. The requirement was to add selected products to the cart, even as **new products are added dynamically** to the online store.
 
 ##  Problem Statement
 
 > **"New products are added daily to the Amazon marketplace. Automate the process of adding specific items to the cart regardless of how the product list changes."**
-
-## Technologies Used
-
-- **Java**
-- **Selenium WebDriver**
-- **ChromeDriver**
 
 ## Solution Strategy
 
@@ -357,6 +351,20 @@ This script showcases:
 - Using **TestNG** for test structuring
 
 Website Tested: https://www.nykaa.com/
+
+---
+
+# 🚀 Day 12 – Selenium TestNG Window Handling
+
+This project demonstrates how to handle multiple browser windows using **Selenium WebDriver** and **TestNG**. The script automates a login workflow where an email ID is extracted from a child window and used in the parent window.
+
+## 📌 Scenario
+
+- Navigate to [Rahul Shetty Academy Login Page](https://rahulshettyacademy.com/loginpagePractise/)
+- Click on a link that opens a new browser window
+- Switch to the child window and extract an email ID from the displayed message
+- Switch back to the parent window
+- Enter the extracted email ID into the username field
 
 ---
 
