@@ -426,6 +426,67 @@ Why it Matters
 
 ---
 
+## Day 14 – Selenium Interview Challenge: Handling Links, Footers & Window Switching
+
+This automation challenge simulates a real-world scenario inspired by an actual HCL interview question. The task is focused on DOM traversal, footer scoping, multi-tab handling, and dynamic link title verification using **Selenium WebDriver with Java and TestNG**.
+
+##  Problem Statement
+
+- Count the total number of links on the webpage
+- Scope into the **footer** section and count its links
+- Further scope into the **first column of the footer** and count links
+- Open each link from that column in a **new tab**
+- Switch to each tab and **fetch the title** of the page
+##  What I Practiced
+
+✅ DOM Scoping using WebElement  
+✅ Sub-driver strategy for efficient element location  
+✅ Opening links in new tabs using `Keys.chord(Keys.CONTROL, Keys.ENTER)`  
+✅ Managing multiple browser tabs with `getWindowHandles()`  
+✅ Retrieving and printing page titles of opened tabs  
+
+##  Why This Matters
+
+Modern websites often use dynamic and nested layouts. Automation engineers must:
+- Understand how to navigate scoped DOM regions
+- Handle multi-tab scenarios
+- Optimize navigation without hardcoding paths
+
+This exercise enhances practical skills required for real-world QA automation and interview readiness.
+
+---
+
+## Assignment 6 – Selenium Automation: Checkbox, Dropdown & Alert Handling
+
+This assignment demonstrates interaction with checkbox elements, dropdowns, and JavaScript alert popups using Selenium WebDriver in Java.
+
+##  What the Script Does
+
+- Navigates to the [Automation Practice Page](https://rahulshettyacademy.com/AutomationPractice/)
+- Selects the first checkbox on the page and retrieves its `value`
+- Selects the same value from a dropdown menu
+- Enters the value into a textbox
+- Triggers an alert and validates whether the alert text contains the entered value
+
+##  Why It Matters
+
+Many real-world applications involve interacting with dynamic forms. Mastering elements like checkboxes, dropdowns, and alert handling is fundamental in building robust automation scripts.
+
+This script helps reinforce:
+- Dynamic element handling
+- Efficient use of locators (`cssSelector`, `By.id`)
+- Switching context to alerts
+- Validating runtime feedback from web elements
+
+## Output Behavior
+The script prints:
+
+✅ "Alert message successfully has your send value" if alert text matches the input
+
+❌ "Alert message doesn't has your send value and something is wrong with your execution" if validation fails
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
