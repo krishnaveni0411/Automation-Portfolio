@@ -520,6 +520,25 @@ Modern web apps frequently use advanced UI components like React date pickers. A
 
 ---
 
+##  Day 16 – Scrolling with JavaScriptExecutor in Selenium
+
+This project demonstrates how to use `JavaScriptExecutor` in Selenium WebDriver to perform scroll actions—both on the main window and within a scrollable table element.
+
+##  What’s Covered
+
+- Scrolling the browser window by pixel offset
+- Scrolling inside a scrollable container using JavaScript
+- Usage of `JavascriptExecutor` interface in Selenium
+
+## Why It Matters
+Standard Selenium methods sometimes fall short when interacting with off-screen elements or deeply nested scrollable components. Using JavaScriptExecutor gives you direct access to DOM manipulation, making it a valuable tool in your automation toolbox.
+
+## Output Example
+- The browser scrolls down by 500 pixels.
+- The scrollable table scrolls internally to simulate reading content.
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
