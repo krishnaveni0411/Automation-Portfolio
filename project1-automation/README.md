@@ -487,6 +487,39 @@ The script prints:
 
 ---
 
+##  Day 15 – Selenium Automation: Handling Date Picker with Month & Year Selector
+
+In this assignment, I automated a real-world calendar widget using Selenium WebDriver. The goal was to dynamically select a specific date from a **React-based date picker** that allows users to navigate through year and month views.
+
+##  What I Did
+
+- Opened the Rahul Shetty Academy **Offers Page**  
+  `https://rahulshettyacademy.com/seleniumPractise/#/offers`
+- Triggered the **date picker widget**
+- Navigated to the **year view**, then selected the required **year and month**
+- Clicked on the target **date (13-June-2024)**
+- Retrieved the selected date from input fields
+- Asserted actual vs expected values using **TestNG**
+
+## Key Concepts Practiced
+
+- Handling dynamic and layered calendar components
+- XPath and CSS Selector mastery for nested UI elements
+- Extracting input field values using `getDomAttribute("value")`
+- Using TestNG for validation/assertions
+
+##  Why It Matters
+
+Modern web apps frequently use advanced UI components like React date pickers. Automating these interactions is essential for effective UI test coverage and to simulate real-user behavior.
+
+## Output & Assertion
+
+- Retrieved each segment of the selected date (Month, Date, Year)
+- Validated it using assertions:
+  1. Assert.assertEquals(actualList.get(i).getDomAttribute("value"), expectedList[i]);
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
