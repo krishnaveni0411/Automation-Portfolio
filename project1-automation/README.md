@@ -539,6 +539,104 @@ Standard Selenium methods sometimes fall short when interacting with off-screen 
 
 ---
 
+## Day 17 – Handle Scrollable Table Grid with Selenium
+
+This project demonstrates how to handle a **scrollable table grid** using **Selenium WebDriver** and **Java**, and how to **validate the sum of a column** against a displayed total on the webpage.
+
+##  Scenario
+The automation script performs the following:
+1. Launches the browser and navigates to [rahulshettyacademy.com/AutomationPractice](https://rahulshettyacademy.com/AutomationPractice/).
+2. Scrolls down the page using JavaScript.
+3. Scrolls inside a scrollable `<div>` containing a table.
+4. Extracts values from the 4th column of the table.
+5. Calculates the total of the extracted values.
+6. Validates the calculated total with the total displayed on the UI.
+
+## What I Learned
+- How to use JavascriptExecutor to scroll both the window and inside elements.
+- How to handle dynamic tables with CSS Selectors.
+- How to use TestNG assertions for validation.
+
+---
+
+##  Assignment 7 – Selenium Web Automation Challenge
+
+## 📄 Overview
+
+This project demonstrates how to interact with and extract data from an HTML table using **Selenium WebDriver** in **Java**. The assignment focuses on DOM traversal, table data validation, and dynamic XPath usage, all while practicing clean and efficient coding techniques.
+
+##  Features Implemented
+
+- Scrolled the page using `JavaScriptExecutor` to reach the table
+- Retrieved:
+  - Total number of **rows** (including header)
+  - Total number of **columns**
+  - **Specific row data** (row 3 in this case)
+  - All values from the **Price** column (3rd column)
+- Parsed string data to integers using `Integer.parseInt()`
+- Practiced advanced XPath and `findElements()` usage
+- Used enhanced for-loop to iterate through row cells
+
+##  What I Learned
+
+- How to dynamically retrieve data from a specific row by:
+  - Storing the row index in a variable
+  - Building a dynamic XPath with that index
+  - Creating a sub-driver to fetch all `<td>` elements
+  - Using an enhanced for-loop to print each cell's content
+- How to extract column data for validation purposes
+
+##  Use Case
+
+Extracting **tabular data** (like pricing, product names, etc.) is vital for many test automation and scraping scenarios. This technique is particularly useful when:
+- Validating individual records based on conditions
+- Performing **data-driven testing**
+- Handling dynamic tables in web applications
+
+---
+
+##  Assignment 8 – Autocomplete Dropdown Automation using Selenium WebDriver (Java)
+
+This project demonstrates how to automate an **autocomplete suggestion box** using **Selenium WebDriver** in Java, and how to verify the selected value using **TestNG assertions**.
+
+##  Objective
+
+- Enter a partial country name in the **autocomplete textbox**.
+- Select **"United Arab Emirates"** from the dropdown list.
+- Retrieve the selected value from the input field.
+- Validate the selection using a **TestNG assertion**.
+
+##  Key Concepts Covered
+
+- Handling dynamic dropdowns/autocomplete suggestions.
+- DOM analysis and workarounds when `getDomAttribute("value")` fails.
+- JavaScriptExecutor for retrieving input values.
+- Validating outcomes using assertions.
+
+##  What I Learned
+
+- Dynamic suggestion lists don't always update the `value` attribute directly in the DOM.
+- Even with waits, `getDomAttribute("value")` may return `null` if the field doesn't use that attribute.
+- JavaScriptExecutor provides a reliable workaround to fetch the **visible input** value.
+- Adding assertions improves the reliability and usefulness of automation tests.
+
+##  Personal Experience
+
+I initially tried using:
+
+country_Textbox.getDomAttribute("value");
+
+But it always returned null. After inspecting the HTML, I found that the value was not being stored as an attribute. I even tried applying explicit waits, but no luck.
+
+Finally, I used JavaScriptExecutor to directly access the live value from the field:
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+String selectedValue = (String) js.executeScript("return document.getElementById('autocomplete').value;");
+
+This worked successfully! I then validated the result with a simple assertion using Assert.assertEquals().
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
