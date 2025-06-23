@@ -673,6 +673,60 @@ ArrayList<String> productNames = products.stream()
 
 ---
 
+## Day 19 - Selenium Screenshot Automation – Nykaa Website
+
+This project demonstrates how to automate a search action on [Nykaa](https://www.nykaa.com), scroll the page, and capture a screenshot using **Selenium WebDriver** with **Java**.
+
+## Features
+
+- Launches Nykaa website
+- Performs a search using `Actions` class with uppercase input (`SHIFT + lipstick`)
+- Scrolls down the page using `JavascriptExecutor`
+- Captures and saves a screenshot locally
+- Closes the browser after execution
+
+---
+## Day 20 - Web Table Sorting Validation using Selenium and TestNG
+
+This project automates the verification of sorting functionality in a web table using **Selenium WebDriver**, **Java**, and **TestNG**.
+
+## Objective
+
+To verify that clicking on the "Product Name" column in the **Top Deals** section of [Rahul Shetty Academy](https://rahulshettyacademy.com/seleniumPractise/#/) sorts the product names alphabetically.
+
+---
+
+## Features
+
+- Launch browser and navigate to the site  
+- Switch to the "Top Deals" section in a new window  
+- Click on the product name header to sort  
+- Extract product names and validate sorting using Java Streams  
+- Log test results and validate using TestNG assertions  
+- Clean up with browser teardown after test execution
+
+---
+## Day 21 - Selenium Automation: Fetching Item Price from Web Table
+
+This project demonstrates how to automate a real-world scenario using **Selenium WebDriver**, **Java**, and **TestNG**. The script navigates through a web application, sorts a web table, and extracts the price of a specific item ("Banana").
+
+## Features
+
+- ✅ Window handling (switching between parent and child tabs)
+- ✅ Dynamic web table interaction
+- ✅ Sorting and validating data using Java Stream API
+- ✅ Extracting data using sibling XPaths
+- ✅ TestNG integration for structured testing
+
+## Test Scenario
+
+1. Launch the [Practice Page](https://rahulshettyacademy.com/seleniumPractise/#/).
+2. Click on the **Top Deals** link which opens a new tab.
+3. Switch to the new tab and click on the **Product Name** column to sort the table.
+4. Retrieve and print the price of the item **"Banana"** using sibling XPath.
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
