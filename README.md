@@ -22,6 +22,16 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 
 ---
 
+## Concepts
+* **JavaScriptExecutor**
+* **Actions Class**
+* **iFrames**
+* **Alerts**
+* **Streams**
+* **XPath**
+
+---
+
 ## 🧭 How to Run
 
 1. Clone the repository  
@@ -75,7 +85,7 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 
 * Full scenario covering flight booking logic, including dynamic validations
 
-### ⚠️ Alert Handling
+### Day 8: Alert Handling
 
 * Handled JavaScript alerts and confirmation popups
 
@@ -106,6 +116,83 @@ A comprehensive automation suite built using **Selenium WebDriver**, **Java**, *
 ### Day 12: Window Handling  
 * Switched to a child window to extract an email ID  
 * Switched back to parent window and entered it into the username field using TestNG lifecycle methods
+
+### Assignment 4 – Window Handling
+- Handles multiple windows using getWindowHandles() and switchTo().window().
+- Extracts and prints text from parent and child windows.
+
+Why: Crucial for automating multi-window workflows like pop-ups and redirects.
+
+### Day 13 – Frames & Drag-Drop (Actions Class)
+Switches to iframe, performs drag-and-drop using Actions.
+
+Why: Real apps often embed content in frames requiring gesture simulation.
+
+### Assignment 5 – Nested Frames
+Navigates and extracts data from deeply nested frames.
+
+Why: Ensures robust interaction with complex UIs using frame hierarchies.
+
+### Day 14 – Footer Link Handling (Interview Simulation)
+- Counts links on page, footer, and its column.
+- Opens each link in new tabs, prints page titles.
+
+Why: Practices scoped DOM traversal, multi-tab handling, and link validation.
+
+### Assignment 6 – Checkbox, Dropdown, and Alert
+Selects checkbox value → dropdown → textbox → alert → validation.
+
+Why: Simulates end-to-end dynamic form interaction & JavaScript alert handling.
+
+### Day 15 – Date Picker Automation
+- Selects dynamic date (13-June-2024) using React calendar.
+- Asserts selected date using getDomAttribute("value").
+
+Why: Advanced date pickers are common in UIs; XPath mastery is key.
+
+### Day 16 – Scrolling with JavaScriptExecutor
+Scrolls browser window and within scrollable <div> table.
+
+Why: Essential for interacting with off-screen or nested content.
+
+### Day 17 – Scrollable Table Grid
+Extracts column values, computes total, validates against UI value.
+
+Why: Teaches scrolling + data validation in dynamic tables.
+
+### Assignment 7 – Web Table Data Extraction
+- Fetches table row/column count, specific row data, and Price column.
+- Uses dynamic XPath, for-each loops, and parsing.
+
+Why: Great for scraping, validating tabular data for QA.
+
+### Assignment 8 – Autocomplete Dropdown
+- Selects "United Arab Emirates" from autocomplete suggestions.
+- Uses JavaScriptExecutor to get value, validates with TestNG.
+
+Why: Real-time suggestion lists often fail traditional locators.
+
+### Smart Cart Automation (Java Streams)
+- Matches & adds products using Java Stream API.
+- Validates added items against expected list.
+
+Why: Boosts efficiency with functional programming.
+
+### Day 19 – Screenshot Automation (Nykaa)
+Searches with Actions, scrolls, captures screenshot.
+
+Why: Useful for debugging and visual validations.
+
+### Day 20 – Web Table Sorting
+- Validates sorting on "Product Name" column.
+- Uses Java Streams + TestNG assertions.
+
+Why: Common UI feature in apps; critical for regression tests.
+
+### Day 21 – Fetching Item Price from Table
+Opens new tab, sorts table, finds "Banana" price using sibling XPath.
+
+Why: Combines tab handling, dynamic table parsing, and XPath traversal.
 
 ---
 
