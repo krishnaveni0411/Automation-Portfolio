@@ -653,18 +653,16 @@ Automatically:
 ## Java Stream API in Action
 
 - java
+
 ArrayList<String> productNames = products.stream()
     .map(p -> p.getText().split("-")[0].trim())
     .collect(Collectors.toCollection(ArrayList::new));
     
 - Explanation:
-stream(): Converts the List<WebElement> into a Stream.
-
-map(): Transforms each element — extracts the product name before the dash (-) and trims it.
-
-collect(): Collects the results back into an ArrayList.
-
-This eliminates the need for manual looping and improves code readability.
+1. stream(): Converts the List<WebElement> into a Stream.
+2. map(): Transforms each element — extracts the product name before the dash (-) and trims it.
+3. collect(): Collects the results back into an ArrayList.
+4. This eliminates the need for manual looping and improves code readability.
 
 - Features Implemented
 1. Extract and clean product names using Streams
