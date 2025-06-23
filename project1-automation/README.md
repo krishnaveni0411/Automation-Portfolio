@@ -637,6 +637,44 @@ This worked successfully! I then validated the result with a simple assertion us
 
 ---
 
+## Smart Cart Automation with Java Streams & Selenium
+
+This project demonstrates how to **automate product selection** on an e-commerce website using **Selenium WebDriver with Java** and **Java Stream API**. The script identifies specific items from a dynamic product list and adds them to the cart — intelligently and efficiently.
+
+## Objective
+
+Automatically:
+1. Load the shopping website.
+2. Extract all available product names.
+3. Match them against a predefined list.
+4. Click the “Add to Cart” button for matching items.
+5. Validate the cart selection.
+
+## Java Stream API in Action
+
+- java
+ArrayList<String> productNames = products.stream()
+    .map(p -> p.getText().split("-")[0].trim())
+    .collect(Collectors.toCollection(ArrayList::new));
+    
+- Explanation:
+stream(): Converts the List<WebElement> into a Stream.
+
+map(): Transforms each element — extracts the product name before the dash (-) and trims it.
+
+collect(): Collects the results back into an ArrayList.
+
+This eliminates the need for manual looping and improves code readability.
+
+- Features Implemented
+1. Extract and clean product names using Streams
+2. Click only on products present in the predefined list
+3. Maintain a list of successfully clicked items
+4. Compare expected vs actual cart contents
+5. Print detailed result logs for debugging
+
+---
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
