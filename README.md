@@ -194,6 +194,16 @@ Opens new tab, sorts table, finds "Banana" price using sibling XPath.
 
 Why: Combines tab handling, dynamic table parsing, and XPath traversal.
 
+### Day 22 – Pagination Handling
+This script automates the process of finding a specific item ("Tomato") across multiple pages in a web table using Selenium WebDriver and TestNG.  
+
+It demonstrates handling pagination, sorting, and data extraction to validate real-world e-commerce scenarios efficiently.
+
+### Day 23: Web Table Filtering with TestNG
+This project automates a filtering operation on a web table using Selenium WebDriver, Java Stream API, and TestNG.  
+
+It helps validate that UI search functionality works correctly using backend logic verification.
+
 ---
 
 ## 📁 Folder Structure
