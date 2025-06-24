@@ -727,6 +727,59 @@ This project demonstrates how to automate a real-world scenario using **Selenium
 
 ---
 
+##  Day 22 – Pagination Handling with Selenium WebDriver + TestNG
+
+This automation script demonstrates how to handle **pagination in web tables** using **Selenium WebDriver**, **Java**, and **TestNG**. It focuses on identifying a product (`Tomato`) across multiple pages and extracting its price dynamically.
+
+---
+
+##  Project Objective
+
+To automate the process of:
+- Opening a product listing page
+- Sorting product names
+- Searching for a specific product across paginated tables
+- Extracting and printing the product price once found
+
+Key Learning Points
+✅ How to handle multiple windows with getWindowHandles()
+✅ Sort and compare column data from a web table
+✅ Use Java Streams for efficient data processing
+✅ Traverse a paginated table using a do-while loop
+✅ Modular and maintainable test scripts using TestNG
+
+---
+
+##  Selenium Automation – Day 23: Web Table Filtering with TestNG
+
+This project demonstrates how to **filter and validate data in a web table** using Selenium WebDriver, Java Stream API, and TestNG.
+
+##  Objective
+
+To automate the filtering functionality on a web table and validate that the visible results match the search query using assertions.
+
+
+##  Test Scenario
+
+- Navigate to [Rahul Shetty's Practice Site](https://rahulshettyacademy.com/seleniumPractise/#/offers)
+- Enter "Strawberry" in the search input
+- Capture all visible items from the first column of the table
+- Use Java Streams to filter rows containing "Strawberry"
+- Assert that the filtered list matches the original visible list
+
+## Key Learning Points
+- Handled dynamic web tables using Selenium.
+- Used Java Stream API to filter table data.
+- Validated results with TestNG assertions.
+- Interacted with search input using sendKeys().
+- Compared original and filtered lists.
+- Structured test with @BeforeClass, @Test, @AfterClass.
+- Practiced browser setup and teardown.
+- Simulated a real-world filtering scenario.
+
+---
+
+
 > 📂 **Project Folder Structure**  
 - `without TESTNG FreamWork/` → Test files without TestNG  
 - `With TESTNG/` → Test files with TestNG  
