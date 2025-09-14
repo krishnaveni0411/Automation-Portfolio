@@ -218,3 +218,44 @@ It helps validate that UI search functionality works correctly using backend log
 │   └── Real World Project Selenium scripts
 ```
 ---
+
+## Project 2 – E-Commerce Automation using POM
+
+## Description
+This project automates an end-to-end workflow on an e-commerce website using **Selenium WebDriver**, **Java**, **TestNG**, and the **Page Object Model (POM)**. It covers login, product selection, cart verification, checkout, and order confirmation with structured, reusable, and maintainable code.
+
+## Key Features
+- Login with valid credentials  
+- Select and validate products in the cart  
+- Complete checkout by selecting a country  
+- Verify order confirmation message  
+
+## What I Learned
+- Implemented POM for better code organization  
+- Applied waits and handled dynamic elements  
+- Used TestNG assertions for validation  
+- Managed test data using property files
+
+## Tech Stack
+- Selenium WebDriver  
+- Java  
+- TestNG  
+- Maven  
+- Page Object Model (POM)
+
+## How to Run
+1. Clone the repository  
+2. Open in your IDE (IntelliJ, Eclipse, etc.)  
+3. Set the browser in `GlobalData.properties`  
+4. Run with `mvn clean test`
+---
+
+> 📂 **Project Folder Structure**  
+- `src/main/java/BaseClass/` → Base setup and utility classes  
+- `src/main/java/BaseTest/` → Common test configurations and setup methods  
+- `src/main/java/POMClass/` → Page Object Model classes for different pages  
+- `src/main/java/Resources/GlobalData.properties` → Configuration file for test data and browser settings  
+- `src/test/java/SubmitOrder/` → Test classes for executing end-to-end scenarios  
+- `pom.xml` → Maven build and dependency management file  
+- `README.md` → Project documentation
+
