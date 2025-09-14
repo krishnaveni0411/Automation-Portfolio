@@ -251,6 +251,7 @@ This project automates an end-to-end workflow on an e-commerce website using **S
 ---
 
 ## 📁 Folder Structure
+```
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -270,3 +271,4 @@ This project automates an end-to-end workflow on an e-commerce website using **S
 │   └── Maven build and dependency management file
 └── README.md
     └── Project documentation
+```
