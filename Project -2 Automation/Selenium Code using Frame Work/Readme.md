@@ -1,4 +1,4 @@
-# Project 1 – Automation – E-Commerce Automation using Page Object Model
+# Project 2 – Automation – E-Commerce Automation using Page Object Model
 
 ## Description
 This automation suite demonstrates how to structure Selenium WebDriver tests using Java, TestNG, and the Page Object Model (POM) design pattern. The project automates an end-to-end scenario on an e-commerce website where a user logs in, selects a product, adds it to the cart, completes checkout, and verifies order confirmation.
