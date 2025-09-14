@@ -251,11 +251,22 @@ This project automates an end-to-end workflow on an e-commerce website using **S
 ---
 
 ## 📁 Folder Structure
-- `src/main/java/BaseClass/` → Base setup and utility classes  
-- `src/main/java/BaseTest/` → Common test configurations and setup methods  
-- `src/main/java/POMClass/` → Page Object Model classes for different pages  
-- `src/main/java/Resources/GlobalData.properties` → Configuration file for test data and browser settings  
-- `src/test/java/SubmitOrder/` → Test classes for executing end-to-end scenarios  
-- `pom.xml` → Maven build and dependency management file  
-- `README.md` → Project documentation
-
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── BaseClass/
+│   │   │   │   └── Base setup and utility classes
+│   │   │   ├── BaseTest/
+│   │   │   │   └── Common test configurations and setup methods
+│   │   │   ├── POMClass/
+│   │   │   │   └── Page Object Model classes for different pages
+│   │   │   └── Resources/
+│   │   │       └── GlobalData.properties – Configuration for test data and browser settings
+│   └── test/
+│       └── java/
+│           └── SubmitOrder/
+│               └── Test classes for executing end-to-end scenarios
+├── pom.xml
+│   └── Maven build and dependency management file
+└── README.md
+    └── Project documentation
