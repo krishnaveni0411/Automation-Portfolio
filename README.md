@@ -250,7 +250,7 @@ This project automates an end-to-end workflow on an e-commerce website using **S
 4. Run with `mvn clean test`
 ---
 
-> 📂 **Project Folder Structure**  
+## 📁 Folder Structure
 - `src/main/java/BaseClass/` → Base setup and utility classes  
 - `src/main/java/BaseTest/` → Common test configurations and setup methods  
 - `src/main/java/POMClass/` → Page Object Model classes for different pages  
