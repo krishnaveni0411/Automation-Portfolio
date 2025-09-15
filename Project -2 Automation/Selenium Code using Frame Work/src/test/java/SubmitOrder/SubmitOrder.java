@@ -15,28 +15,32 @@ import POMClass.ProductCatalogue;
 
 public class SubmitOrder extends BaseTest {
 
-		String productName = "ZARA COAT 3";
-		String MailId = "krishanveni123@krish.com";
-		String Password = "Qazwsx@123";
+		String productName = "ADIDAS ORIGINAL";
+		String mailId = "krishanveni123@krish.com";
 		
-
-		@Test
-		public void submitOrder() throws IOException, InterruptedException
-		{
-
-			
-			ProductCatalogue productCatalogue = landingPage.loginApplication(MailId, Password);
-			List<WebElement> products = productCatalogue.getProductList();
-			productCatalogue.addProductToCart(productName);
-			CartPage cartPage = productCatalogue.goToCartPage();
-
-			Boolean match = cartPage.VerifyProductDisplay(productName);
-			Assert.assertTrue(match);
-			CheckoutPage checkoutPage = cartPage.goToCheckout();
-			checkoutPage.selectCountry("india");
-			ConfirmationPage confirmationPage = checkoutPage.submitOrder();
-			String confirmMessage = confirmationPage.getConfirmationMessage();
-			Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		/*for Register
+		 CreateAnAccount createAccount = new CreateAnAccount(driver);
+				createAccount.goToPage();
+				String generatedMailId = createAccount.registerForm("1234567890", "Qazwsx@123");
+				String confirmMess= createAccount.confirmationPage();
+				Assert.assertTrue(confirmMess.equalsIgnoreCase("Account Created Successfully"));
+				createAccount.backToLogin();
+				*/
+		
+		LandingPage landingPage = launchApplication();
+		ProductCatogry productCatorgy =landingPage.LoingApplication(mailId,"Qazwsx@123");  //in place of mailid replace with generatedMailId if we run register class.
+		List<WebElement> products = productCatorgy.getProductList();
+		productCatorgy.getProductName(productName);
+		CartProducts cartProducts = productCatorgy.addProductToCart(productName);
+		Boolean match = cartProducts.cartProducts(productName);
+		Assert.assertTrue(match);
+		cartProducts.cartProducts(productName);
+		cartProducts.checkOut();
+		String shippingMailId = cartProducts.fillTheForm();
+		Assert.assertTrue(mailId.equalsIgnoreCase(shippingMailId));
+		String orderconfirmMess =  cartProducts.orderConfirmationPage();
+		Assert.assertTrue(orderconfirmMess.equalsIgnoreCase("Thankyou for the order"));
+		tearDown();
 			
 
 		}
@@ -51,5 +55,6 @@ public class SubmitOrder extends BaseTest {
 
 
 	}
+
 
 
