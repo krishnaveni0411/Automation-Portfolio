@@ -15,60 +15,49 @@ import POMClass.LandingPage;
 public class BaseTest {
 
 
-		public WebDriver driver;
-		public LandingPage landingPage;
-
-		public WebDriver initializeDriver() throws IOException
-
-		{
-			// properties class
-
-			 Properties pros = new Properties();
-			FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
-					+ "//src//main//java//Resources//GlobalData.properties");
-			pros.load(fis);
-			String browserName = pros.getProperty("browser");
-			System.out.println("Browser from properties = " + browserName);
-			//prop.getProperty("browser");
-
-			if(browserName.equalsIgnoreCase("chrome")) {
-				driver = new ChromeDriver();
-				}
-				if(browserName.equalsIgnoreCase("firefox")) {
-					driver = new FirefoxDriver();
-					}
-				if(browserName.equalsIgnoreCase("edge")) {
-					driver = new EdgeDriver();
-					}
-
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			driver.manage().window().maximize();
-			return driver;
-
+		WebDriver driver;
+	public WebDriver initializeDriver() throws IOException {
+		
+		Properties pros = new Properties();
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\Resources\\GlobalData.properties");
+		pros.load(fis);
+		String browserName = pros.getProperty("browser");
+		
+		
+		if(browserName.equalsIgnoreCase("chrome")) {
+		driver = new ChromeDriver();
 		}
-	
+		if(browserName.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
+			}
+		if(browserName.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
+			}
 		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		return driver;
+	}
 	
-		
-		@BeforeMethod
-		public LandingPage launchApplication() throws IOException
-		{
-			
-			 driver = initializeDriver();
-			  landingPage = new LandingPage(driver);
-			landingPage.goTo();
+	public LandingPage launchApplication() throws IOException {
+		driver = initializeDriver();
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.goTo();
 			return landingPage;
-		
-			
-		}
-		
-		@AfterMethod
-		
-		public void tearDown()
-		{
-			driver.close();
+	}
+//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	
+//	public void waitForWebElementToAppear(By findBy) {
+//	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+//}
+	
+	@AfterClass
+	public void tearDown() {
+		driver.close();
 		}
 	}
 
 	
+
 
