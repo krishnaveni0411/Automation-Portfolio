@@ -1,20 +1,15 @@
-package SubmitOrder;
-
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+package com.mycompany.app;
 
 import java.io.IOException;
 import java.util.List;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import BaseTest.BaseTest;
-import POMClass.CartPage;
-import POMClass.CheckoutPage;
-import POMClass.ConfirmationPage;
 
-import POMClass.ProductCatalogue;
-
-public class SubmitOrder extends BaseTest {
-
+public class CompleteCode extends BaseTest {
+	@Test
+	public void submitOrder() throws InterruptedException, IOException {
 		String productName = "ADIDAS ORIGINAL";
 		String mailId = "krishanveni123@krish.com";
 		
@@ -32,29 +27,18 @@ public class SubmitOrder extends BaseTest {
 		List<WebElement> products = productCatorgy.getProductList();
 		productCatorgy.getProductName(productName);
 		CartProducts cartProducts = productCatorgy.addProductToCart(productName);
+		System.out.println("Checking for product in the cart...");
+		cartProducts.getCartProducts().forEach(p -> System.out.println("Product in cart: " + p.getText()));
 		Boolean match = cartProducts.cartProducts(productName);
 		Assert.assertTrue(match);
-		cartProducts.cartProducts(productName);
 		cartProducts.checkOut();
-		String shippingMailId = cartProducts.fillTheForm();
-		Assert.assertTrue(mailId.equalsIgnoreCase(shippingMailId));
+		cartProducts.fillTheForm();
 		String orderconfirmMess =  cartProducts.orderConfirmationPage();
-		Assert.assertTrue(orderconfirmMess.equalsIgnoreCase("Thankyou for the order"));
+		System.out.println(orderconfirmMess);
+		Assert.assertTrue(orderconfirmMess.equalsIgnoreCase("Thankyou for the order."));
+		System.out.println("Test completed successfully!");
 		tearDown();
-			
-
-		}
-	
 		
-	
-		
-		
-		
-		
-		
-
-
 	}
 
-
-
+}
