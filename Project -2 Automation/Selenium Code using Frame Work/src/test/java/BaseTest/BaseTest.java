@@ -1,46 +1,56 @@
 package BaseTest;
 
-import org.testng.annotations.AfterMethod;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeMethod;
-import POMClass.LandingPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import com.mycompany.app.LandingPage;
 
 public class BaseTest {
-
-
-		WebDriver driver;
+	protected WebDriver driver;
+	
 	public WebDriver initializeDriver() throws IOException {
 		
 		Properties pros = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\Resources\\GlobalData.properties");
 		pros.load(fis);
 		String browserName = pros.getProperty("browser");
-		
+		System.out.println("Browser from properties = " + browserName);
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-		driver = new ChromeDriver();
-		}
-		if(browserName.equalsIgnoreCase("firefox")) {
-			driver = new FirefoxDriver();
+			driver = new ChromeDriver();
 			}
-		if(browserName.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
-			}
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		return driver;
+			if(browserName.equalsIgnoreCase("firefox")) {
+				driver = new FirefoxDriver();
+				}
+			if(browserName.equalsIgnoreCase("edge")) {
+				driver = new EdgeDriver();
+				}
+			return driver;
 	}
+	
+	
+		
+		public void ManageTheBrowser() {
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	    
+		}
 	
 	public LandingPage launchApplication() throws IOException {
 		driver = initializeDriver();
+		ManageTheBrowser();
 		LandingPage landingPage = new LandingPage(driver);
 		landingPage.goTo();
 			return landingPage;
@@ -52,12 +62,8 @@ public class BaseTest {
 //	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 //}
 	
-	@AfterClass
 	public void tearDown() {
-		driver.close();
-		}
+		driver.quit();
 	}
 
-	
-
-
+}
