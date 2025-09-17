@@ -1,77 +1,41 @@
-package POMClass;
+package com.mycompany.app;
+
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import BaseClass.BaseClass;
-public class LandingPage extends BaseClass {
-	
+import BaseClass.BeforeClass;
 
-		WebDriver driver;
-		
-		public LandingPage(WebDriver driver)
-		{
-			super(driver);
-			//initialization
-			this.driver=driver;
-			PageFactory.initElements(driver, this);
-			
-		}
-			
-		//WebElement userEmails = driver.findElement(By.id("userEmail"));
-		//PageFactory
-		
-		@FindBy(id="userEmail")
-		WebElement userEmail;
-		
-		@FindBy(id="userPassword")
-		WebElement passwordEle;
-		
-		@FindBy(id="login")
-		WebElement submit;
-		@FindBy(css="[class*='flyInOut']")
-		WebElement errorMessage;
+public class LandingPage extends BeforeClass {
 
-		
-		public ProductCatalogue loginApplication(String email,String password)
-		{
-			userEmail.sendKeys(email);
-			passwordEle.sendKeys(password);
-			submit.click();
-			ProductCatalogue productCatalogue = new ProductCatalogue(driver);
-			return productCatalogue;
-			
-			
-		}
-		
-		public String getErrorMessage()
-		{
-			waitForWebElementToAppear(errorMessage);
-			return errorMessage.getText();
-		}
-		
-		public void goTo()
-		{
-			driver.get("https://rahulshettyacademy.com/client");
-		}
-		
-		
-		
-		
-		
-		
-		
-		
+	//WebDriver driver;
 
-		
-		
-		
-		
-		
-		
-		
+	public LandingPage(WebDriver driver) {
+		super(driver);
+	//	this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-
-
+	@FindBy(id= "userEmail")
+	WebElement userEmail;
+	
+	@FindBy(id="userPassword")
+	WebElement password;
+	
+	@FindBy(id="login")
+	WebElement login;
+	
+	public void goTo() {
+		driver.get("https://rahulshettyacademy.com/client/");
+	}
+	
+	public ProductCatogry LoingApplication(String mailId, String logincode) {
+		userEmail.sendKeys(mailId);
+		password.sendKeys(logincode);
+		login.click();
+		ProductCatogry productCatorgy = new ProductCatogry(driver);
+		return productCatorgy;
+	}
+	
+}
