@@ -68,21 +68,17 @@ It’s a practical implementation for anyone looking to master Selenium automati
 # TestNG Grouping
 Implemented TestNG Groups (AddProduct, CartPage, placeAnOrder) with alwaysRun in @BeforeTest & @AfterTest to improve automation flow reliability.
 
----
 
 ##  What I learned
 - Groups let you run only the tests you need instead of the full suite.
 - alwaysRun ensures setup & teardown always execute, even if tests fail.
 - Combining both gives cleaner, faster, and more controlled test execution.
 
----
 
 ## Key Highlights
 - Selective execution with AddProduct + CartPage groups
 - Stable environment with guaranteed login & teardown
 - POM structure for maintainable, reusable code
-
----
 
 Takeaway: TestNG’s grouping + alwaysRun makes automation frameworks scalable, reliable, and efficient.
 
