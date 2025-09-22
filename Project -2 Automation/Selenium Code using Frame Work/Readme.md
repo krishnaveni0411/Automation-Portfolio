@@ -63,3 +63,28 @@ It’s a practical implementation for anyone looking to master Selenium automati
 
 ✅ Data-Driven Testing
 * Managed test data like email, password, and product names through properties files
+
+---
+# 🛒 CompleteCode – E-commerce Flow Automation
+
+End-to-end automation of an **e-commerce workflow** using Selenium WebDriver and TestNG groups.
+
+---
+
+##  What I Learned
+- Grouping tests with **TestNG (`Login`, `placeAnOrder`)**
+- Validating cart products dynamically using `getText()`
+- Using **assertions** to confirm product presence and order success
+- Clean setup and teardown with TestNG annotations
+
+---
+
+##  Key Highlights
+- Launched the application and performed login
+- Retrieved and validated product list
+- Added product (`ADIDAS ORIGINAL`) to cart
+- Verified product presence inside cart
+- Completed checkout and filled form
+- Asserted order confirmation message: *“Thankyou for the order.”*
+
+---
