@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import BaseTest.BaseTest;
 
-public class CompleteCode extends BaseTest {
+public class Groupingthecompletecode extends BaseTest {
 	ProductCatogry productCatorgy;
 	String productName = "ADIDAS ORIGINAL";
 	String mailId = "krishanveni123@krish.com";
