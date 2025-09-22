@@ -65,26 +65,25 @@ It’s a practical implementation for anyone looking to master Selenium automati
 * Managed test data like email, password, and product names through properties files
 
 ---
-# 🛒 CompleteCode – E-commerce Flow Automation
-
-End-to-end automation of an **e-commerce workflow** using Selenium WebDriver and TestNG groups.
-
----
-
-##  What I Learned
-- Grouping tests with **TestNG (`Login`, `placeAnOrder`)**
-- Validating cart products dynamically using `getText()`
-- Using **assertions** to confirm product presence and order success
-- Clean setup and teardown with TestNG annotations
+# TestNG Grouping
+Implemented TestNG Groups (AddProduct, CartPage, placeAnOrder) with alwaysRun in @BeforeTest & @AfterTest to improve automation flow reliability.
 
 ---
 
-##  Key Highlights
-- Launched the application and performed login
-- Retrieved and validated product list
-- Added product (`ADIDAS ORIGINAL`) to cart
-- Verified product presence inside cart
-- Completed checkout and filled form
-- Asserted order confirmation message: *“Thankyou for the order.”*
+##  What I learned
+- Groups let you run only the tests you need instead of the full suite.
+- alwaysRun ensures setup & teardown always execute, even if tests fail.
+- Combining both gives cleaner, faster, and more controlled test execution.
+
+---
+
+## Key Highlights
+- Selective execution with AddProduct + CartPage groups
+- Stable environment with guaranteed login & teardown
+- POM structure for maintainable, reusable code
+
+---
+
+Takeaway: TestNG’s grouping + alwaysRun makes automation frameworks scalable, reliable, and efficient.
 
 ---
