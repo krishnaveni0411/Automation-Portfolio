@@ -9,19 +9,19 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import BaseClass.BeforeClass;
-import dev.failsafe.internal.util.Assert;
+
 
 public class CreateAnAccount extends BeforeClass{
 	WebDriver driver;
 
 	public CreateAnAccount(WebDriver driver) {
+		// TODO Auto-generated constructor stub
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-	
 	}
-	
-	
+
+
 	public String randomMail() {
 		  String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	        StringBuilder word = new StringBuilder();
