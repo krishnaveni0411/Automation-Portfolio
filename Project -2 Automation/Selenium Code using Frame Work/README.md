@@ -83,3 +83,65 @@ Implemented TestNG Groups (AddProduct, CartPage, placeAnOrder) with alwaysRun in
 Takeaway: TestNG’s grouping + alwaysRun makes automation frameworks scalable, reliable, and efficient.
 
 ---
+
+# TestNG DataProviders – Three Approaches
+
+This project demonstrates three ways to use TestNG @DataProvider for driving tests with multiple data sets in Selenium automation.
+
+## Type 1: Direct Object[][]
+
+Description: Pass test data directly in a 2D object array.
+
+What I Learned
+
+- Quick setup with inline data
+- Useful for small-scale test cases
+- Not ideal for large or dynamic data sets
+
+# Key Highlights
+- Data provided as { {"email", "password", "productName"} }
+- Second dataset intentionally has wrong credentials to show test failure
+- Easy but not scalable
+
+## Type 2: Using HashMap
+
+Description: Store data in a HashMap<String, String> for better readability.
+
+# What I Learned
+- Clean structure with key-value mapping
+- Makes accessing parameters intuitive (input.get("email"))
+- Still needs hardcoding inside the test class
+
+# Key Highlights
+- Two datasets stored as HashMaps
+- Easy access to fields like email, password, and productName
+- Improves clarity compared to raw arrays
+
+## Type 3: Reading from JSON File
+
+Description: Externalize test data in a JSON file and parse it into HashMap objects.
+
+# What I Learned
+- Separation of test logic and test data
+- Scalable for larger projects
+- Practical for CI/CD pipelines
+
+# Key Highlights
+- Test data stored in TestData.json
+- Used Jackson Databind to parse JSON into List of HashMaps
+- Supports multiple test data sets without changing test code
+
+## Takeaway
+
+Type 1 → Good for quick demos
+Type 2 → Cleaner & more maintainable
+Type 3 → Best for real-world projects (scalable & reusable)
+
+## Oveerall Key Highlights
+
+- Explored multiple DataProvider strategies in TestNG
+- Compared array-based, HashMap-based, and JSON-based approaches
+- Identified JSON as the most scalable solution for large test suites
+
+---
+
