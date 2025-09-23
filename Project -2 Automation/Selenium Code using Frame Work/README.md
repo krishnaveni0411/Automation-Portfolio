@@ -92,13 +92,13 @@ This project demonstrates three ways to use TestNG @DataProvider for driving tes
 
 Description: Pass test data directly in a 2D object array.
 
-What I Learned
+### What I Learned
 
 - Quick setup with inline data
 - Useful for small-scale test cases
 - Not ideal for large or dynamic data sets
 
-# Key Highlights
+### Key Highlights
 - Data provided as { {"email", "password", "productName"} }
 - Second dataset intentionally has wrong credentials to show test failure
 - Easy but not scalable
@@ -107,12 +107,12 @@ What I Learned
 
 Description: Store data in a HashMap<String, String> for better readability.
 
-# What I Learned
+### What I Learned
 - Clean structure with key-value mapping
 - Makes accessing parameters intuitive (input.get("email"))
 - Still needs hardcoding inside the test class
 
-# Key Highlights
+### Key Highlights
 - Two datasets stored as HashMaps
 - Easy access to fields like email, password, and productName
 - Improves clarity compared to raw arrays
@@ -121,12 +121,12 @@ Description: Store data in a HashMap<String, String> for better readability.
 
 Description: Externalize test data in a JSON file and parse it into HashMap objects.
 
-# What I Learned
+### What I Learned
 - Separation of test logic and test data
 - Scalable for larger projects
 - Practical for CI/CD pipelines
 
-# Key Highlights
+### Key Highlights
 - Test data stored in TestData.json
 - Used Jackson Databind to parse JSON into List of HashMaps
 - Supports multiple test data sets without changing test code
