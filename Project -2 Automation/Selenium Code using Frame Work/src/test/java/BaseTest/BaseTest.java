@@ -1,20 +1,24 @@
 package BaseTest;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
-
-import org.openqa.selenium.By;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.app.LandingPage;
 
 public class BaseTest {
@@ -47,6 +51,9 @@ public class BaseTest {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    
 		}
+		public WebDriver getDriver() {
+		    return driver;
+		}
 	
 	public LandingPage launchApplication() throws IOException {
 		driver = initializeDriver();
@@ -62,6 +69,29 @@ public class BaseTest {
 //	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 //}
 	
+	public static List<HashMap<String, String>> getJsonToMap(String filePath) throws IOException {
+		//read json file to string
+		String jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
+		//System.getProperty("user.dir")+"\\src\\test\\java\\TestData\\TestDataForExpense.json" -> file path
+	System.out.println(jsonContent);
+	//string to HashMap
+	//to change the string to hashmap then we need "jackson databind" dependence 
+	ObjectMapper mapper = new ObjectMapper();
+	List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>(){	
+	});
+	return data;
+	}
+	
+	public String getScreenShot(String TestCaseName, WebDriver driver) throws IOException {
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File Source = ts.getScreenshotAs(OutputType.FILE);
+		File DestinationFile = new File(System.getProperty("user.dir")+ "//ScreenShotReport//" + TestCaseName + ".png");
+		FileUtils.copyFile(Source, DestinationFile);
+		//return DestinationFile;
+		//return System.getProperty("user.dir")+ "//ScreenShotReport//" + TestCaseName + ".png";
+		return "../ScreenShotReport/" + TestCaseName + ".png";
+	}
+@AfterMethod(alwaysRun = true)	
 	public void tearDown() {
 		driver.quit();
 	}
