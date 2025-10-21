@@ -29,8 +29,9 @@ public class BaseTest {
 		Properties pros = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\Resources\\GlobalData.properties");
 		pros.load(fis);
-		String browserName = pros.getProperty("browser");
-		System.out.println("Browser from properties = " + browserName);
+		String browserName =System.getProperty("browser")!=null? System.getProperty("browser"): pros.getProperty("browser") ;
+		//String browserName	 = pros.getProperty("browser");
+				//System.out.println("Browser from properties = " + browserName);)
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
