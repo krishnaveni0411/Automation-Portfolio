@@ -13,8 +13,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -34,12 +37,18 @@ public class BaseTest {
 				//System.out.println("Browser from properties = " + browserName);)
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
+			ChromeOptions options =new ChromeOptions();
+			options.addArguments("headless");
+			driver = new ChromeDriver(options);
 			}
 			if(browserName.equalsIgnoreCase("firefox")) {
+				FirefoxOptions options =new FirefoxOptions();
+				options.addArguments("headless");
 				driver = new FirefoxDriver();
 				}
 			if(browserName.equalsIgnoreCase("edge")) {
+				EdgeOptions options =new EdgeOptions();
+				options.addArguments("headless");
 				driver = new EdgeDriver();
 				}
 			return driver;
