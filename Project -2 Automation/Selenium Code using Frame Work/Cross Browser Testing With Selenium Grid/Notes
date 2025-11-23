@@ -1,0 +1,569 @@
+## 1. Why Selenium Grid?
+
+### What problem does it solve?
+
+* With **TestNG parallel** we can run tests in parallel, but:
+
+  * All tests still run **on the same machine**.
+  * If you run **15 tests in parallel**, 15 browser instances open on one system.
+  * Result:
+
+    * System becomes slow, runs out of resources.
+    * Tests become **flaky** due to slowness and memory usage.
+
+### Selenium Grid – High-level idea
+
+* **Selenium Grid** is a **smart proxy server** that:
+
+  * Lets you run tests **in parallel**.
+  * Distributes tests across **multiple machines** (nodes).
+  * Helps with:
+
+    * Better **performance**.
+    * Less **flakiness**.
+    * **Scalability** (you can keep adding nodes).
+
+### Basic use case
+
+* You have **15 test cases**.
+* Instead of running all 15 on one machine:
+
+  * Use Grid to distribute like **3 tests per machine** across 5 machines.
+  * Total execution time remains roughly similar to full parallel, but:
+
+    * Each machine runs fewer browsers.
+    * System performance is better and more stable.
+
+---
+
+## 2. Grid Terminology
+
+* **Hub**
+
+  * Central execution system.
+  * Receives all test requests.
+  * Decides **which node** should execute which test.
+  * Exposes a URL (e.g. `http://<hub-ip>:4444`) where clients send requests.
+
+* **Node**
+
+  * A **physical machine** (or VM) connected to the hub.
+  * Runs the actual browsers and executes tests.
+  * Can have different:
+
+    * Browsers (Chrome, Firefox, Safari, etc.)
+    * Operating systems (Windows, Mac, Linux).
+  * A grid can have **multiple nodes**.
+
+* **Client**
+
+  * Your Selenium test code (e.g. in Eclipse).
+  * Sends requests to the **hub** (not directly to browsers).
+
+---
+
+## 3. Internal Architecture of Selenium Grid
+
+Inside the hub, Selenium Grid uses several components:
+
+1. **Client**
+
+   * Your Java + Selenium + TestNG code.
+   * Sends a request to **execute a test**.
+
+2. **Router**
+
+   * First entry point for all requests.
+   * Receives the initial request from the client.
+   * If it’s a **new session**:
+
+     * Forwards the request to the **Distributor**.
+   * For **subsequent commands** of the same session:
+
+     * Uses the **Session Map** to route directly to the correct node.
+
+3. **Distributor**
+
+   * The “brain” that decides:
+
+     * On which **node (machine)** to run the test.
+   * Reads:
+
+     * Script properties (DesiredCapabilities).
+     * Required browser, OS, etc.
+   * Responsibilities:
+
+     * Match test request with an appropriate node (browser/OS capability).
+     * Load balance:
+
+       * Sends tests to nodes based on current load (e.g. distribute 10 tests across nodes).
+
+4. **Session Map**
+
+   * Stores mapping of:
+
+     * **Session ID** ↔ **Node (physical machine) address**.
+   * When a new session is created:
+
+     * Distributor informs Session Map:
+
+       * Session ID.
+       * Node URL / IP where it’s running.
+   * For later commands in the same test:
+
+     * Router checks Session Map to find the correct node and routes commands directly.
+
+5. **New Session Queue**
+
+   * Stores **incoming new session requests** when multiple tests start at once.
+   * Distributor processes them **one-by-one** from this queue.
+   * Only relevant when many sessions are requested simultaneously.
+
+6. **Event Bus**
+
+   * Internal communication channel used by all grid components.
+   * Works with underlying sockets & protocols (XPUB / XSUB on specific ports).
+
+7. **Nodes**
+
+   * Each node:
+
+     * Registers with the hub.
+     * Indicates what browsers and how many parallel sessions it supports.
+   * Example:
+
+     * Node can support 10 Chrome, 10 Firefox, 1 Safari, etc.
+
+---
+
+## 4. Grid Setup Modes
+
+Selenium Grid can be started in different **roles**:
+
+1. **Standalone**
+
+   * Everything (hub + node) in a single process.
+   * Good for simple local runs.
+
+2. **Distributed mode**
+
+   * Each component runs separately:
+
+     * Router, Distributor, Session Map, New Session Queue, Event Bus, Nodes.
+   * You start each component with its own command.
+   * Gives full control and separate logs per component.
+   * More complex; not needed for usual projects.
+
+3. **Hub & Node mode (most common)**
+
+   * Recommended for **small to medium grids**.
+   * You:
+
+     * Start a **Hub** (which internally starts router, distributor, session map, queue, and event bus).
+     * Start one or more **Nodes**, and register them to the hub.
+   * This is what companies commonly use, and what the lecture demonstrates.
+
+---
+
+## 5. Practical Setup – Hub
+
+### Step 1: Download required files
+
+* From Selenium official downloads:
+
+  * **Selenium Server (Grid) jar** (e.g. `selenium-server-4.x.x.jar`).
+* Also download browser drivers (and keep them in the same folder):
+
+  * `chromedriver`
+  * `geckodriver` (for Firefox)
+  * Other drivers as needed (Edge, etc.).
+
+> Create a folder (e.g. `Grid/`) and place:
+>
+> * `selenium-server-<version>.jar`
+> * `chromedriver`
+> * `geckodriver`
+>   all in that same folder.
+
+### Step 2: Start the Hub
+
+In **command prompt / terminal**:
+
+```bash
+cd <path-to-Grid-folder>
+
+java -jar selenium-server-<version>.jar hub
+```
+
+* This:
+
+  * Starts the **hub**.
+  * Internally starts:
+
+    * Router
+    * Distributor
+    * Session Map
+    * New Session Queue
+    * Event Bus
+
+* In the logs, you’ll see something like:
+
+  * Hub listening on `4444`.
+  * Sockets ready.
+  * Event bus ready.
+
+### Step 3: Verify hub status
+
+* Open in browser:
+
+  * `http://localhost:4444`
+* You should see:
+
+  * Grid is running.
+  * **0 nodes registered** initially.
+
+---
+
+## 6. Practical Setup – Node on Same Machine
+
+### Step 1: Use the same folder
+
+* Use the same `Grid` folder where:
+
+  * Selenium server jar.
+  * Browser drivers are kept.
+
+### Step 2: Start node (same machine)
+
+Open a **new** command prompt / terminal window:
+
+```bash
+cd <path-to-Grid-folder>
+
+java -jar selenium-server-<version>.jar node --detect-drivers true
+```
+
+* `--detect-drivers true`:
+
+  * Tells node to automatically detect drivers in that folder (Chrome, Firefox, etc.).
+
+### Step 3: Verify node registration
+
+* Go back to `http://localhost:4444` (grid console).
+* You should now see:
+
+  * **1 node registered**.
+  * Node capabilities like:
+
+    * Max sessions (e.g. 10 Chrome, 10 Firefox, 1 Safari).
+    * Node port (e.g. `5555`).
+* Hub logs will show:
+
+  * “Added node… Health check every 120 seconds.”
+
+> Note: When hub & node are on the **same machine**, no extra configuration for publish/subscribe events is needed.
+
+---
+
+## 7. Practical Setup – Node on a Different Machine
+
+Now, add a node from a **remote physical machine**.
+
+### On the node machine:
+
+1. Create a folder (e.g. `Grid/`).
+2. Download:
+
+   * Same **selenium server jar**.
+   * Required **browser drivers** (at least Chrome if you want only Chrome).
+3. Ensure that the **browser** itself (Chrome/Firefox) is installed on that machine.
+
+> If the browser is not installed, Grid cannot actually run tests in that browser.
+
+### Start node with hub connection
+
+From the remote machine command prompt:
+
+```bash
+cd <path-to-Grid-folder>
+
+java -jar selenium-server-<version>.jar node \
+  --detect-drivers true \
+  --publish-events tcp://<hub-ip>:4442 \
+  --subscribe-events tcp://<hub-ip>:4443
+```
+
+* `tcp://<hub-ip>:4442`
+
+  * Connects to **publish events** socket (XPUB).
+* `tcp://<hub-ip>:4443`
+
+  * Connects to **subscribe events** socket (XSUB).
+* `<hub-ip>` is the IP address of the machine where hub is running.
+
+  * You see this in the hub logs (e.g. `http://192.168.0.139:4444`).
+
+After running the command, logs should show:
+
+* Node started.
+* Node registered to hub.
+
+### Verify on hub UI
+
+* Refresh `http://<hub-ip>:4444`.
+* You will now see:
+
+  * **Two nodes**:
+
+    * Node 1 (local machine with full drivers).
+    * Node 2 (remote machine, maybe only Chrome).
+  * Different IPs confirm they’re different physical machines.
+  * Capability differences:
+
+    * For example, node 2 may not have Firefox (no `geckodriver` installed), so Firefox will not show as supported there.
+
+---
+
+## 8. Writing Tests to Use Selenium Grid
+
+### Project setup (client side)
+
+* Create a Java project (e.g. `SeleniumGrid`).
+* Add Selenium JAR to Build Path (or use Maven dependency).
+
+### Using RemoteWebDriver instead of ChromeDriver
+
+**Wrong for Grid (local only):**
+
+```java
+WebDriver driver = new ChromeDriver();
+```
+
+**Correct for Grid (remote execution):**
+
+```java
+WebDriver driver = new RemoteWebDriver(
+    /* URL of hub */,
+    /* DesiredCapabilities */
+);
+```
+
+#### 1) Hub URL
+
+* Hub URL is where the router is listening:
+
+  * E.g. `http://<hub-ip>:4444/wd/hub` or `http://<hub-ip>:4444`
+* Example with Java 20+ (URL deprecation workaround):
+
+```java
+WebDriver driver = new RemoteWebDriver(
+    new URI("http://<hub-ip>:4444").toURL(),
+    caps
+);
+```
+
+> Note:
+>
+> * `URL` class is deprecated in Java 20+.
+> * Use `URI` and convert using `.toURL()`.
+> * Add `throws Exception` (like `URISyntaxException`) to your test method.
+
+#### 2) DesiredCapabilities
+
+* Used to tell Grid **what you want**:
+
+  * Browser.
+  * Platform (OS).
+  * Additional settings.
+
+Example:
+
+```java
+DesiredCapabilities caps = new DesiredCapabilities();
+caps.setBrowserName("chrome");
+// or
+caps.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+
+// Optional: OS
+// caps.setPlatform(Platform.WIN10);
+```
+
+* These capabilities are read by the **Distributor** to decide:
+
+  * Which node can run this test (matching browser + OS).
+  * How to balance load across nodes.
+
+#### Advanced capabilities (optional)
+
+Using `setCapability` and `CapabilityType`:
+
+```java
+caps.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+// Other options: proxy, scroll behaviour, profiling, touchscreen, etc.
+```
+
+---
+
+## 9. Example Tests (Chrome & Firefox)
+
+### Test 1 – GoogleTest (Chrome)
+
+* Goes to Google homepage.
+* Types into the search box (`name="q"`).
+* Prints page title, closes browser.
+* Uses:
+
+  * `caps.setBrowserName("chrome");`
+
+### Test 2 – RSATest (Firefox)
+
+* Goes to `rahulshettyacademy.com`.
+* Prints page title, closes browser.
+* Uses:
+
+  * `caps.setCapability(CapabilityType.BROWSER_NAME, "firefox");`
+
+Both tests:
+
+* Use `RemoteWebDriver` with hub URL:
+
+  * `http://<hub-ip>:4444`
+* Send capabilities to Grid.
+
+---
+
+## 10. Running Them in Parallel with TestNG
+
+### Step 1: Add TestNG
+
+* Add TestNG to project.
+* Use `@Test` annotations on methods.
+
+### Step 2: Create TestNG suite XML
+
+Right-click project → TestNG → **Convert to TestNG**.
+
+Set:
+
+* **Parallel mode** = `classes`
+  So each test class runs in parallel.
+
+Example `testng.xml` (conceptually):
+
+```xml
+<suite name="SeleniumGridSuite" parallel="classes">
+  <test name="GridTests">
+    <classes>
+      <class name="GoogleTest"/>
+      <class name="RSATest"/>
+    </classes>
+  </test>
+</suite>
+```
+
+Run:
+
+* Right click `testng.xml` → Run As → TestNG Suite.
+
+---
+
+## 11. How Grid Routes These Tests (Flow Example)
+
+Assume:
+
+* Node A (local machine): Chrome + Firefox.
+* Node B (remote machine): only Chrome.
+
+When you run the TestNG suite:
+
+1. **Two sessions start in parallel**:
+
+   * Session 1 → `GoogleTest` → wants **Chrome**.
+   * Session 2 → `RSATest` → wants **Firefox**.
+
+2. Both sessions send initial request to **Hub** URL.
+
+   * Router receives them as **new sessions**.
+
+3. Router forwards them to **Distributor**.
+
+4. Distributor checks capabilities:
+
+   * For `GoogleTest`:
+
+     * Browser: Chrome → Can run on Node A or Node B.
+   * For `RSATest`:
+
+     * Browser: Firefox → Can only run on Node A (because Node B has no Firefox).
+
+5. Distributor:
+
+   * Assigns Chrome test to Node B (remote).
+   * Assigns Firefox test to Node A (local).
+   * Informs Session Map:
+
+     * Session ID → Node A/B mapping.
+
+6. Subsequent WebDriver commands:
+
+   * Router checks Session Map.
+   * Sends each command to the proper node directly (no need to involve Distributor again).
+
+7. You see:
+
+   * Firefox browser opening on local machine.
+   * Chrome browser opening on the remote machine (TeamViewer).
+
+8. TestNG report:
+
+   * Both tests pass.
+   * Titles printed in console.
+
+---
+
+## 12. Real-Time Usage & Interview Points
+
+### Real-time architecture
+
+* Hub, client, and nodes **don’t have to be on same machine**:
+
+  * Hub on one server.
+  * Your Eclipse/Test code on another.
+  * Nodes on multiple other machines.
+* All that matters:
+
+  * Your test uses **hub URL** correctly.
+
+### Why companies use Selenium Grid
+
+* Faster feedback:
+
+  * Large suites that would take hours sequentially can finish in minutes.
+* Resource efficiency:
+
+  * Tests spread across many machines.
+* Cross-browser & cross-platform:
+
+  * Different nodes can represent different environments.
+
+### Common interview-style explanation
+
+If asked: **"Explain Selenium Grid architecture"**, you can say:
+
+* Selenium Grid lets us run tests in parallel across multiple machines and browsers.
+* We have:
+
+  * **Client** (Selenium code).
+  * **Hub** (central controller exposing a URL).
+  * **Nodes** (machines with browsers that execute tests).
+* Inside the hub:
+
+  * **Router** receives requests.
+  * **Distributor** selects the best node based on capabilities and load.
+  * **Session Map** stores session ↔ node mappings.
+  * **New Session Queue** queues new session requests.
+  * **Event Bus** handles internal communication over sockets.
+* Tests use `RemoteWebDriver` with hub URL + desired capabilities (browser, OS).
+* Grid distributes tests to nodes and we get consolidated results back in our IDE/TestNG reports.
+
+---
