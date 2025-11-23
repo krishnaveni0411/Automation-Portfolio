@@ -1,0 +1,674 @@
+# CI/CD + Jenkins + GitHub + Webhooks + ngrok
+
+*(Lecture Notes)*
+
+---
+
+## 1. What is CI/CD?
+
+**CI/CD = Continuous Integration + Continuous Delivery**
+
+### Traditional release process (old way)
+
+* Developer writes code.
+* Code is given to QA:
+
+  * Manual testing.
+  * Automation scripts.
+* Bugs found → sent back to dev → fixes.
+* After weeks, product is finally released to production.
+* Releases are **slow** and **infrequent** (e.g., once in weeks/months).
+
+### Modern CI/CD (used by Google, Microsoft, etc.)
+
+* Companies like Google/Microsoft can push to **production multiple times per day** (even every minute).
+* How is this possible?
+
+  * They use **automated pipelines** where:
+
+    * Code is **continuously integrated** into a shared repository.
+    * Automated **quality checks (tests)** run instantly.
+    * If tests pass, deployment to production can also be **automated**.
+
+---
+
+## 2. High-Level CI/CD Flow (Concept)
+
+Think of this sequence:
+
+1. **Developer pushes code** to a **GitHub repository**.
+2. **GitHub Webhook** detects the push and **notifies Jenkins**.
+3. **Jenkins**:
+
+   * Pulls the latest code from GitHub.
+   * Runs **automation tests** (your Selenium tests).
+   * If all tests pass:
+
+     * Another Jenkins job (created by DevOps) can **deploy code to production** (CD part).
+
+For QA / Automation Engineers:
+
+* Your main responsibility is usually **until the automation tests complete** successfully.
+* Setting up:
+
+  * Code in Git/GitHub.
+  * Jenkins job to run tests.
+  * Webhook so Jenkins runs automatically on every push.
+
+---
+
+## 3. Step 1 – Preparing the Project & Pushing to GitHub
+
+We start with an existing **Selenium framework project** and connect it to GitHub.
+
+### 3.1 Create a separate folder for CI/CD
+
+In terminal / command prompt:
+
+```bash
+# Go to base folder (e.g., rahulshetty)
+mkdir cicd          # create folder
+cd cicd             # go inside cicd
+```
+
+* Copy your existing **SeleniumFrameworkDesign** project into this `cicd` folder.
+* This ensures original project remains untouched.
+
+### 3.2 Initialize Git in the project
+
+Go inside the project folder:
+
+```bash
+cd SeleniumFrameworkDesign
+```
+
+Initialize Git:
+
+```bash
+git init
+```
+
+This:
+
+* Creates a hidden `.git` folder.
+* Makes this directory **Git-enabled** (can communicate with remote repos like GitHub).
+
+### 3.3 Create a `main` branch
+
+```bash
+git checkout -b main
+```
+
+* Creates and switches to a `main` branch.
+
+### 3.4 Check Git status & stage files
+
+```bash
+git status
+```
+
+* Shows **untracked files** (all your project files).
+
+Stage all files:
+
+```bash
+git add .
+```
+
+Check status again:
+
+```bash
+git status
+```
+
+* Files now appear as **staged** (usually shown in green or similar).
+
+### 3.5 Commit staged files
+
+```bash
+git commit -m "initial files commit"
+```
+
+* Creates first commit.
+* `git status` now shows:
+
+  * On branch main
+  * Nothing to commit, working tree clean
+
+### 3.6 Create GitHub repository
+
+On GitHub:
+
+* Click **New repository**
+* Example name: `AutomationCICD`
+* Keep it **Public**
+* Click **Create repository**
+
+GitHub then shows instructions & remote URL, e.g.:
+
+```
+https://github.com/<username>/AutomationCICD.git
+```
+
+### 3.7 Add remote & push code
+
+Set remote origin:
+
+```bash
+git remote add origin https://github.com/<username>/AutomationCICD.git
+```
+
+Push to main branch:
+
+```bash
+git push origin main
+```
+
+* First push may ask:
+
+  * Login via browser
+  * Username/password or token
+* Recommended: use **Git Credential Manager** (installed with Git on Windows, separate setup on Mac).
+
+  * Handles authentication securely.
+
+After successful push:
+
+* Your full Selenium framework is visible in the GitHub repo `AutomationCICD`.
+
+✅ **Step 1 complete:** Developer’s code (or automation code for practice) is now in GitHub.
+
+---
+
+## 4. Step 2 – Installing & Configuring Jenkins
+
+Now we prepare Jenkins to pull code from GitHub and run tests.
+
+### 4.1 Check Java version compatibility
+
+* Jenkins LTS (Long Term Support) supports specific Java versions (at the time mentioned: **11, 17, 21**).
+* **Java 8 is NOT supported** for new Jenkins LTS.
+* Before installing Jenkins:
+
+  * Make sure your Java version is one of the supported ones.
+
+Check Java:
+
+* On Mac (if env var set):
+
+  ```bash
+  echo $JAVA_HOME
+  ```
+
+* On Windows:
+
+  * Check **Environment Variables** → `JAVA_HOME`.
+
+Ensure it points to Java 11/17/21 (in the lecture, Java 17 is used).
+
+### 4.2 Download Jenkins
+
+Go to Jenkins download page:
+
+* Choose **LTS (Long-Term Support)**.
+* Download **Generic Java package (.war)** file.
+
+Example:
+
+* Save it as something like `jenkinsnewest.war` in Downloads.
+
+### 4.3 Clean old Jenkins (if any)
+
+If Jenkins was previously installed:
+
+* On **Windows**:
+  `C:\Users\<YourName>\.jenkins`
+* On **Mac**:
+  `/Users/<YourName>/.jenkins`
+
+Steps:
+
+1. Make hidden files visible.
+2. Open `.jenkins` folder.
+3. **Backup** any important jobs (optional).
+4. Delete all contents of `.jenkins` (folder should be empty).
+
+This ensures:
+
+* Fresh Jenkins install.
+* No old config / version conflicts.
+
+### 4.4 Start Jenkins from the `.war` file
+
+In terminal / command prompt:
+
+```bash
+cd Downloads
+
+java -jar jenkinsnewest.war --httpPort=1990
+```
+
+* `--httpPort=1990` means Jenkins will run at `http://localhost:1990`
+* Use any free port (8080, 9090, 1990 etc.) but remember it.
+
+When Jenkins starts for the first time:
+
+* Log shows:
+
+  * Creating configuration in `.jenkins`
+  * An **initial admin password**.
+
+Copy that password.
+
+### 4.5 First-time Jenkins setup in browser
+
+Open browser:
+
+* Go to: `http://localhost:1990`
+
+Steps:
+
+1. Paste the **initial admin password**, click continue.
+2. Choose **Install suggested plugins**.
+3. Create admin user:
+
+   * Username, password, etc. (remember these).
+4. Confirm Jenkins URL (e.g., `http://localhost:1990`).
+5. Click **Save and Finish** → **Start using Jenkins**.
+
+Now you see Jenkins dashboard.
+
+### 4.6 Install Maven Integration plugin
+
+Because the project is a **Maven project**, Jenkins needs Maven support.
+
+Steps:
+
+1. Go to **Manage Jenkins**.
+2. Click **Plugins** / **Manage Plugins**.
+3. Go to **Available** tab.
+4. Search for **Maven Integration**.
+5. Install it.
+6. Restart Jenkins after install (stop server & restart `java -jar ...` command).
+
+### 4.7 Configure Maven in Jenkins
+
+Go to:
+
+* **Manage Jenkins → Tools**
+
+Under Maven:
+
+1. Click **Add Maven**.
+2. Provide a **Name**: e.g., `Maven-3.8.6`.
+3. **Maven Home**:
+
+   * On Windows: same path as in `MAVEN_HOME` environment variable.
+   * On Mac: use `mvn -version` and take the installation path.
+
+Save the configuration.
+
+✅ Jenkins now knows where Maven is installed.
+
+---
+
+## 5. Step 3 – Creating Jenkins Job to Pull from GitHub & Run Tests
+
+### 5.1 Create Maven project job
+
+1. From Jenkins dashboard → **New Item**.
+2. Enter name: e.g., `Selenium automation test`.
+3. Select **Maven project**.
+4. Click **OK**.
+
+### 5.2 Configure Source Code Management (SCM)
+
+In job configuration:
+
+* **Source Code Management** → choose **Git**.
+* Repository URL:
+
+  * Paste your GitHub repo URL, e.g.:
+
+    ```
+    https://github.com/<username>/AutomationCICD.git
+    ```
+
+#### GitHub Credentials via Personal Access Token (PAT)
+
+Instead of username/password:
+
+1. In **GitHub**:
+
+   * Go to **Settings → Developer settings → Personal access tokens → Tokens (classic)**.
+   * Generate new token.
+   * Give required permissions (repo, notifications, etc.).
+   * Copy the token and store securely (you can't see it again).
+2. In **Jenkins job config**:
+
+   * Under Credentials → **Add** → Kind: **Secret text**.
+   * Paste token as the **Secret**.
+   * Give ID / description like `GitHub-Token`.
+   * Save.
+
+Now, select this credential in the Git section.
+
+* Branch:
+
+  * Change from default `master` → `main` (exact branch name from GitHub).
+
+### 5.3 Enable GitHub hook trigger (important for later)
+
+Under **Build Triggers**:
+
+* Check: **GitHub hook trigger for GITScm polling**
+
+This tells Jenkins:
+
+> When a GitHub webhook is received, trigger this job.
+
+We’ll connect the webhook later. For now, keep this checked.
+
+### 5.4 Configure Maven build
+
+Scroll to Build section:
+
+* **Root POM**: `pom.xml`
+* **Goals and options**:
+
+Example:
+
+```text
+test -P regression
+```
+
+Meaning:
+
+* Run Maven `test` goal using `regression` profile from `pom.xml`.
+* In the framework:
+
+  * `regression` profile points to a particular `testng.xml`.
+  * That `testng.xml` might run tests like:
+
+    * `SubmitOrderTest`
+    * `ErrorValidationTest`
+
+### 5.5 Test the job manually
+
+* Click **Save**.
+* From job page, click **Build Now**.
+* Go to **Console Output**.
+
+You should see:
+
+* Jenkins pulling code from GitHub (`git clone`).
+* Using branch `main`.
+* Running Maven command `mvn test -P regression`.
+* Tests executing and finishing with **BUILD SUCCESS** if all passes.
+
+✅ At this point:
+
+* Jenkins can manually run tests from code stored in GitHub.
+
+---
+
+## 6. Step 4 – Setting Up GitHub Webhook to Trigger Jenkins
+
+Goal:
+
+> When code is pushed to GitHub, Jenkins job should run **automatically**.
+
+This uses **GitHub Webhook + Jenkins hook URL**.
+
+### 6.1 Find Jenkins GitHub hook URL
+
+In Jenkins:
+
+1. Go to **Manage Jenkins → Configure System**.
+2. Find **GitHub** section.
+3. Click **Advanced**.
+4. Enable/see **Hook URL for GitHub configuration**.
+
+   * You’ll see something like:
+
+   ```text
+   http://<your-jenkins-url>/github-webhook/
+   ```
+
+* This URL is where GitHub will send webhook events.
+
+### 6.2 Configure Webhook in GitHub repository
+
+In GitHub **AutomationCICD** repo:
+
+1. Go to **Settings → Webhooks**.
+2. Click **Add webhook**.
+3. **Payload URL**: paste Jenkins hook URL.
+4. Content type: `application/json`.
+5. Option: Just the **push** event.
+6. For now, add the webhook.
+
+**But there is a problem** for local practice 👇
+
+---
+
+## 7. Problem: GitHub Cannot Reach Localhost
+
+* Webhooks are sent from GitHub servers over the **internet**.
+* `http://localhost:1990` is only accessible on your **own machine** (private IP).
+* GitHub **cannot** call a `localhost` URL.
+
+GitHub webhook **requires:**
+
+* A **publicly accessible URL** (internet-facing).
+* Usually:
+
+  * Cloud server URL (AWS, Azure, GCP, etc.).
+  * Or any public IP/domain where Jenkins is hosted.
+
+For real companies:
+
+* Jenkins is usually hosted on a server with a public/organization URL → no problem.
+
+For local learning:
+
+* We must expose local Jenkins to a public URL.
+
+Solution: **ngrok**
+
+---
+
+## 8. Step 5 – Using ngrok to Expose Local Jenkins Publicly
+
+**ngrok**:
+
+* A small tool that exposes your local server on the internet.
+* Creates a public URL that forwards traffic to `localhost:<port>`.
+
+### 8.1 Install & configure ngrok
+
+1. Go to **ngrok** website and **sign up**.
+
+2. Download the binary for your OS:
+
+   * **Windows**: Download ZIP, extract, run `.exe`.
+   * **Mac**: Use Homebrew (example):
+
+     ```bash
+     brew install ngrok/ngrok/ngrok
+     ```
+
+3. In ngrok dashboard, you get an **auth token**.
+
+4. Configure auth token:
+
+   ```bash
+   ngrok config add-authtoken <your-token>
+   ```
+
+### 8.2 Start tunnel to Jenkins port
+
+Assume Jenkins runs on port **1990** (or 9090, etc.):
+
+```bash
+ngrok http 1990
+```
+
+ngrok output shows something like:
+
+```text
+Forwarding  https://<random-subdomain>.ngrok-free.app -> http://localhost:1990
+```
+
+* That `https://<random-subdomain>.ngrok-free.app` is now your **public URL**.
+* Open this URL in browser:
+
+  * Click **Visit site**.
+  * You should see your Jenkins UI via ngrok.
+
+### 8.3 Use ngrok URL in GitHub Webhook
+
+In GitHub **Webhooks** configuration:
+
+* Replace old `localhost` payload URL.
+* New Payload URL:
+
+```text
+https://<random-subdomain>.ngrok-free.app/github-webhook/
+```
+
+* Ensure `/github-webhook/` is appended.
+
+Optionally:
+
+* Set **Secret**:
+
+  * Use the **same secret text** token you configured in Jenkins job credentials (if used).
+  * Helps validate that the webhook event is trusted.
+
+Click **Add webhook** (or **Update webhook** if editing).
+
+* GitHub will send a **test ping**.
+* If correctly configured:
+
+  * You’ll see a **green tick** for the webhook.
+  * Jenkins received the ping.
+
+✅ Now:
+
+* GitHub can **reach** Jenkins via ngrok.
+* Jenkins can react to webhooks.
+
+---
+
+## 9. Step 6 – End-to-End CI Flow Demo (Push → Webhook → Jenkins Job)
+
+Now we test the **full CI flow**.
+
+### 9.1 Modify code locally
+
+In your local repo folder (the one connected to Git):
+
+* Example file: `StandAloneTest` (or any test file).
+
+Open and add a simple comment:
+
+```java
+// New comments are added for demo purpose
+```
+
+Save the file.
+
+### 9.2 Stage, commit & push changes
+
+From project directory:
+
+```bash
+git status                 # shows modified file
+git add <modified-file>    # e.g., git add src/test/java/.../StandAloneTest.java
+git commit -m "Updated standalone test file"
+git push origin main
+```
+
+Before pushing, you may need to re-authenticate via browser once.
+
+### 9.3 Observe Jenkins
+
+Immediately after push:
+
+* Go to Jenkins dashboard.
+* You should see:
+
+  * A new build automatically triggered (e.g., `#3`).
+  * Status: building, then success/fail.
+
+In **Console Output**:
+
+* Jenkins shows:
+
+  * Received webhook.
+  * Fetching latest changes from GitHub.
+  * Running `mvn test -P regression`.
+  * Tests executing.
+  * Build result (e.g., `BUILD SUCCESS`).
+
+No manual click on "Build Now" was required.
+The whole chain worked automatically:
+
+1. Commit & push local changes.
+2. GitHub receives push.
+3. Webhook notifies Jenkins via ngrok URL.
+4. Jenkins triggers job (due to **GitHub hook trigger** checkbox).
+5. Jenkins pulls latest code and runs automation tests.
+
+This is **Continuous Integration (CI)**.
+
+If another job deploys to production after successful tests, that completes the **Continuous Delivery (CD)** chain.
+
+---
+
+## 10. What You Can Explain in Interviews
+
+From this lecture, you can clearly explain:
+
+1. **What is CI/CD?**
+
+   * Continuous integration of code into a central repo.
+   * Automatic testing on every commit/push.
+   * Continuous delivery enabling frequent, automated releases.
+
+2. **Your role as QA/Automation Engineer in CI/CD:**
+
+   * Maintain automation framework in Git.
+   * Configure Jenkins jobs to:
+
+     * Pull code from GitHub.
+     * Run Maven + TestNG test suites (via profiles).
+   * Set up Webhooks so that tests run automatically on each push.
+
+3. **Tools and Key Concepts:**
+
+   * **Git & GitHub**:
+
+     * `git init`, `git add .`, `git commit`, `git push`.
+     * Setting `origin`, using `main` branch.
+   * **Jenkins**:
+
+     * Running via `.war` file.
+     * Port configuration.
+     * Managing plugins (Maven integration).
+     * Configuring Maven and creating Maven project jobs.
+   * **Maven**:
+
+     * Using `pom.xml`.
+     * Running with specific profiles like `-P regression`.
+   * **GitHub Webhooks**:
+
+     * Push event triggers.
+     * Payload URL pointing to Jenkins `/github-webhook/`.
+   * **ngrok (for local practice)**:
+
+     * Exposing local Jenkins to a public URL.
+     * Using the ngrok public URL in GitHub webhook.
+
+---
