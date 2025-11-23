@@ -22,7 +22,7 @@ public class dataDrivenFromExcelToDataProvider {
 @DataProvider(name = "dataTest")
 public Object[][] getData() throws IOException {
 	
-	FileInputStream file = new FileInputStream("C:\\Users\\Waffor\\Downloads\\Exceldriven.xlsx");
+	FileInputStream file = new FileInputStream("C:\\Users\\Waffor\\Documents\\Exceldatadrivenproject-sheet -1.xlsx");
 	XSSFWorkbook workBook = new XSSFWorkbook(file);
 	XSSFSheet sheet = workBook.getSheetAt(0);
 	int rowCount= sheet.getPhysicalNumberOfRows();
