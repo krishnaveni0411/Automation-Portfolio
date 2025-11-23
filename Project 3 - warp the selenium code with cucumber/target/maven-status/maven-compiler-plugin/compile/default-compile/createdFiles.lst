@@ -1,0 +1,6 @@
+BaseClass\BeforeClass.class
+com\mycompany\app\ProductCatogry.class
+Resources\ExtentReportNG.class
+com\mycompany\app\CreateAnAccount.class
+com\mycompany\app\CartProducts.class
+com\mycompany\app\LandingPage.class
