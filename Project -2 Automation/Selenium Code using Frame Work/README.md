@@ -1,5 +1,10 @@
 # Project 2 – Automation – E-Commerce Automation using Page Object Model
 
+A production-style automation framework that automates a complete **e-commerce workflow end-to-end** using Selenium WebDriver, Java & TestNG.
+> 🌟 **MASTER REPOSITORY LINK**  
+> I have extracted this framework into its own dedicated, standalone repository for a cleaner view of the architecture.  
+> 👉 **[View the Standalone E-Commerce Framework Repository Here](https://github.com/krishnaveni0411/selenium-java-testng-ecommerce-automation-framework)** 👈
+
 ## Description
 This automation suite demonstrates how to structure Selenium WebDriver tests using Java, TestNG, and the Page Object Model (POM) design pattern. The project automates an end-to-end scenario on an e-commerce website where a user logs in, selects a product, adds it to the cart, completes checkout, and verifies order confirmation.
 
