@@ -1,5 +1,22 @@
 # 🧪 Selenium Automation Portfolio – Complete Project Suite
 
+# My 30-Day Transition to Automation QA 🚀
+Welcome to my portfolio! This repository documents my "30-Day Do or Die" challenge where I successfully transitioned from Manual QA to an Automation QA Engineer.
+Over 30 days, I learned Java, Selenium WebDriver, TestNG, and modern testing practices. 
+## 🌟 My Master Project
+While I built many small assignments during my learning journey, I consolidated all my knowledge into one enterprise-level framework. 
+👉 **[Click here to view my main Showcase Project: E-Commerce UI Automation Framework](https://github.com/krishnaveni0411/selenium-java-testng-ecommerce-automation-framework)** 👈
+**Highlights of my main framework:**
+- Built entirely from scratch using Java and Selenium.
+- Data-driven testing using TestNG.
+- Comprehensive Extent Reports.
+- Page Object Model (POM) architecture.
+## 🤝 Let's Connect
+Follow my continuing journey on [LinkedIn](https://www.linkedin.com/in/krishnaveni-k04/)!
+
+---
+## 🚀 About This Repository
+
 A full-stack automation portfolio featuring **three complete real-world automation projects**, built using **Selenium WebDriver**, **Java**, **TestNG**, **Maven**, **Page Object Model (POM)**, and **Cucumber BDD**.
 
 This repository tracks my automation learning & execution journey from fundamentals → advanced automation → real-world framework implementation → BDD adoption.
